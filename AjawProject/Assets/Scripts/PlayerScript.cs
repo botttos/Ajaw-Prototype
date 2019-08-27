@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour
     public TextMeshProUGUI UIfood;
     public TextMeshProUGUI UImonth;
     public TextMeshProUGUI UIweek;
+    
 
     void Start()
     {

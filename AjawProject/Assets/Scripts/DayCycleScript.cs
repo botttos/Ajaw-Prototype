@@ -13,6 +13,7 @@ public class DayCycleScript : MonoBehaviour
     public Day[] days;
     [Header("UI")]
     public TextMeshProUGUI UItime;
+    public GameObject UIdivinity;
 
     // private
     private float currentTime = 0.0f;
@@ -78,11 +79,18 @@ public class DayCycleScript : MonoBehaviour
         Debug.Log("MORE POPULATION");
         StartCoroutine(StartReproductionCycle());
     }
+
+    public Day GetCurrentDay()
+    {
+        return days[PlayerScript.currentMonth];
+    }
     void Update()
     {
         currentTimeUI += Time.deltaTime;
         if (currentTimeUI >= dayTime)
             currentTimeUI = 0.0f;
-        UItime.SetText("" + ((int)currentTimeUI+1));
+        UItime.SetText("" + ((int)currentTimeUI + 1));
+
+        UIdivinity.transform.localScale = new Vector3(PlayerScript.currentDivinity / GetCurrentDay().maxDivinity, 1.0f, 1.0f);
     }
 }
