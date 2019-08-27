@@ -1,19 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DayCycleScript : MonoBehaviour
 {
     [Header("Variables de semana")]
     public float dayTime = 0.0f;
     [Header("Estadísticas")]
-    
     public float foodConsumed = 0.0f;
     [Header("Datos por día")]
     public Day[] days;
+    [Header("UI")]
+    public TextMeshProUGUI UItime;
 
     // private
     private float currentTime = 0.0f;
+    private float currentTimeUI = 0.0f;
 
     [System.Serializable]
     public class Day
@@ -23,7 +26,6 @@ public class DayCycleScript : MonoBehaviour
     }
     void Start()
     {
-        //days = new Day[18];
         currentTime = 0.0f;
         // Day cycle
         StartCoroutine(StartDayCicle());
@@ -35,50 +37,52 @@ public class DayCycleScript : MonoBehaviour
 
     IEnumerator StartDayCicle()
     {
-        currentTime += Time.deltaTime;
-        if (currentTime >= dayTime)
+        yield return new WaitForSeconds(dayTime);
+        PlayerScript.currentWeek++;
+        PlayerScript.currentFood -= foodConsumed;
+        PlayerScript.currentDivinity -= days[PlayerScript.currentMonth].divinityConsumption;
+
+        if (PlayerScript.currentFood <= 0)
         {
-            PlayerScript.food -= foodConsumed;
-            PlayerScript.divinity -= days[PlayerScript.currentMonth].divinityConsumption;
-
-            if (PlayerScript.food <= 0)
-            {
-                // kill all the people
-            }
-            else if (PlayerScript.divinity <= 0)
-            {
-                // lose game
-            }
-
-            if (PlayerScript.currentWeek % 5 == 0)
-            {
-                PlayerScript.currentMonth++;
-                PlayerScript.divinity = 150;
-            }
-            currentTime = 0.0f;
-            Debug.Log("WEEK END");
-            PlayerScript.currentWeek++;
-            StartCoroutine(StartDayCicle());
-            yield return null;
+            // kill all the people
         }
+        else if (PlayerScript.currentDivinity <= 0)
+        {
+            // lose game
+        }
+
+        // Si es multiplo de 5, sumamos un mes
+        if (PlayerScript.currentWeek % 5 == 0)
+        {
+            PlayerScript.currentMonth++;
+            PlayerScript.currentDivinity = days[PlayerScript.currentMonth].divinityConsumption;
+        }
+        currentTime = 0.0f;
+        Debug.Log("WEEK END");
+        StartCoroutine(StartDayCicle());
+        yield return null;
     }
 
     IEnumerator StartFoodCycle()
     {
-        yield return new WaitForSeconds(PlayerScript.foodPerCycle);
-        PlayerScript.food += PlayerScript.foodPerCycle;
+        yield return new WaitForSeconds(PlayerScript.foodTimeCycle);
+        // TODO: setear limitacion de comida
+        PlayerScript.currentFood += PlayerScript.foodTimeCycle;
         Debug.Log("MORE FOOD");
         StartCoroutine(StartFoodCycle());
     }
     IEnumerator StartReproductionCycle()
     {
-        yield return new WaitForSeconds(PlayerScript.reproductionPerCycle);
+        yield return new WaitForSeconds(PlayerScript.reproductionTimeCycle);
         // TODO: añadir más población
         Debug.Log("MORE POPULATION");
         StartCoroutine(StartReproductionCycle());
     }
     void Update()
     {
-
+        currentTimeUI += Time.deltaTime;
+        if (currentTimeUI >= dayTime)
+            currentTimeUI = 0.0f;
+        UItime.SetText("" + ((int)currentTimeUI+1));
     }
 }
