@@ -7,13 +7,23 @@ public class DayCycleScript : MonoBehaviour
     [Header("Variables de semana")]
     public float dayTime = 0.0f;
     [Header("Estadísticas")]
-    public float divinityConsumed = 0.0f;
+    
     public float foodConsumed = 0.0f;
+    [Header("Datos por día")]
+    public Day[] days;
 
     // private
     private float currentTime = 0.0f;
+
+    [System.Serializable]
+    public class Day
+    {
+        public int maxDivinity;
+        public int divinityConsumption;
+    }
     void Start()
     {
+        //days = new Day[18];
         currentTime = 0.0f;
         // Day cycle
         StartCoroutine(StartDayCicle());
@@ -29,8 +39,7 @@ public class DayCycleScript : MonoBehaviour
         if (currentTime >= dayTime)
         {
             PlayerScript.food -= foodConsumed;
-            PlayerScript.divinity -= divinityConsumed;
-            PlayerScript.currentWeek++;
+            PlayerScript.divinity -= days[PlayerScript.currentMonth].divinityConsumption;
 
             if (PlayerScript.food <= 0)
             {
@@ -41,8 +50,14 @@ public class DayCycleScript : MonoBehaviour
                 // lose game
             }
 
+            if (PlayerScript.currentWeek % 5 == 0)
+            {
+                PlayerScript.currentMonth++;
+                PlayerScript.divinity = 150;
+            }
             currentTime = 0.0f;
             Debug.Log("WEEK END");
+            PlayerScript.currentWeek++;
             StartCoroutine(StartDayCicle());
             yield return null;
         }

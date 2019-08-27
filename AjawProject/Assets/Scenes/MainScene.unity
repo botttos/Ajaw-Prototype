@@ -888,6 +888,43 @@ MonoBehaviour:
   dayTime: 20
   divinityConsumed: 25
   foodConsumed: 2
+  days:
+  - maxDivinity: 150
+    divinityConsumption: 25
+  - maxDivinity: 240
+    divinityConsumption: 61
+  - maxDivinity: 400
+    divinityConsumption: 125
+  - maxDivinity: 580
+    divinityConsumption: 197
+  - maxDivinity: 700
+    divinityConsumption: 245
+  - maxDivinity: 850
+    divinityConsumption: 305
+  - maxDivinity: 1060
+    divinityConsumption: 389
+  - maxDivinity: 1360
+    divinityConsumption: 509
+  - maxDivinity: 1700
+    divinityConsumption: 645
+  - maxDivinity: 2080
+    divinityConsumption: 797
+  - maxDivinity: 2500
+    divinityConsumption: 965
+  - maxDivinity: 2960
+    divinityConsumption: 1149
+  - maxDivinity: 3460
+    divinityConsumption: 1349
+  - maxDivinity: 4000
+    divinityConsumption: 1565
+  - maxDivinity: 4500
+    divinityConsumption: 1766
+  - maxDivinity: 5200
+    divinityConsumption: 2045
+  - maxDivinity: 5850
+    divinityConsumption: 2305
+  - maxDivinity: 6560
+    divinityConsumption: 2589
 --- !u!1 &1232512791
 GameObject:
   m_ObjectHideFlags: 0
