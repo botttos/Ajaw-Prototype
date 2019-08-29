@@ -83,6 +83,15 @@ public class DayCycleScript : MonoBehaviour
         Debug.Log("MORE POPULATION");
         StartCoroutine(StartReproductionCycle());
     }
+    IEnumerator StartPassiveDivinity()
+    {
+        yield return new WaitForSeconds(PlayerScript.divinityTimeCycle);
+        if ((PlayerScript.currentDivinity + PlayerScript.passiveDivinity) <= GetCurrentDay().maxDivinity)
+            PlayerScript.currentDivinity += PlayerScript.passiveDivinity;
+        else
+            PlayerScript.currentDivinity = GetCurrentDay().maxDivinity;
+        StartCoroutine(StartPassiveDivinity());
+    }
 
     public Day GetCurrentDay()
     {

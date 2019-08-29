@@ -114,6 +114,7 @@ public class EdificationScript : MonoBehaviour
                     if (PlayerScript.currentDivinity >= building[PlayerScript.chamanLevel + 1].cost)
                     {
                         PlayerScript.currentDivinity -= building[PlayerScript.chamanLevel + 1].cost;
+                        PlayerScript.armyPower = building[PlayerScript.chamanLevel + 1].capacity;
                         PlayerScript.chamanLevel++;
                         purchaseSuccess = true;
                     }
@@ -125,6 +126,7 @@ public class EdificationScript : MonoBehaviour
                     if (PlayerScript.currentDivinity >= building[PlayerScript.sacerdoteLevel + 1].cost)
                     {
                         PlayerScript.currentDivinity -= building[PlayerScript.sacerdoteLevel + 1].cost;
+                        PlayerScript.passiveDivinity = building[PlayerScript.sacerdoteLevel + 1].capacity;
                         PlayerScript.sacerdoteLevel++;
                         purchaseSuccess = true;
                     }
@@ -136,6 +138,7 @@ public class EdificationScript : MonoBehaviour
                     if (PlayerScript.currentFood >= building[PlayerScript.mercaderLevel + 1].cost)
                     {
                         PlayerScript.currentFood -= building[PlayerScript.mercaderLevel + 1].cost;
+                        PlayerScript.chanceObject = building[PlayerScript.mercaderLevel + 1].capacity;
                         PlayerScript.mercaderLevel++;
                         purchaseSuccess = true;
                     }

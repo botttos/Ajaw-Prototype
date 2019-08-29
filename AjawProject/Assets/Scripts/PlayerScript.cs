@@ -20,13 +20,18 @@ public class PlayerScript : MonoBehaviour
     public static int leftDoorLevel = 0;
     public static int rightDoorLevel = 0;
     public static int chamanLevel = 0;
+    public static int armyPower = 0;
     public static int sacerdoteLevel = 0;
+    public static int passiveDivinity = 10;
     public static int mercaderLevel = 0;
+    public static float chanceObject = 0;
+    
     public static EdificationScript.BUILDING_TYPE buildingTarget;
 
-    // 
+    // Cycles
     public static int foodTimeCycle = 0;
     public static int reproductionTimeCycle = 0;
+    public static int divinityTimeCycle = 0;
 
     [Header("UI Time")]
    // public TextMeshProUGUI UIfood;
@@ -40,6 +45,7 @@ public class PlayerScript : MonoBehaviour
         currentWeek = 0;
         currentMonth = 0;
         foodTimeCycle = 12;
+        divinityTimeCycle = 8;
         reproductionTimeCycle = 15;
     }
 
