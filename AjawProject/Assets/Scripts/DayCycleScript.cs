@@ -9,7 +9,7 @@ public class DayCycleScript : MonoBehaviour
     [Header("Variables de semana")]
     public float dayTime = 0.0f;
     [Header("Estadísticas")]
-    public float foodConsumed = 0.0f;
+    public float foodConsumed = 10.0f;
     [Header("Datos por día")]
     public Day[] days;
     [Header("UI")]
@@ -36,6 +36,8 @@ public class DayCycleScript : MonoBehaviour
         StartCoroutine(StartFoodCycle());
         // Reproduction cycle
         StartCoroutine(StartReproductionCycle());
+        // Divinity cycle
+        StartCoroutine(StartPassiveDivinity());
     }
 
     IEnumerator StartDayCicle()
@@ -43,6 +45,9 @@ public class DayCycleScript : MonoBehaviour
         yield return new WaitForSeconds(dayTime);
         PlayerScript.currentFood -= foodConsumed;
         PlayerScript.currentDivinity -= days[PlayerScript.currentMonth].divinityConsumption;
+
+        if (Random.Range(0, 10) > PlayerScript.chanceObject) //TODO: añadir item
+            Debug.Log("ITEM POP UP");
 
         if (PlayerScript.currentFood <= 0)
         {
@@ -64,15 +69,14 @@ public class DayCycleScript : MonoBehaviour
         StartCoroutine(StartDayCicle());
         yield return null;
     }
-
     IEnumerator StartFoodCycle()
     {
         yield return new WaitForSeconds(PlayerScript.foodTimeCycle);
-
-        if ((PlayerScript.currentFood + PlayerScript.foodTimeCycle) <= PlayerScript.foodMax)
-            PlayerScript.currentFood += PlayerScript.foodTimeCycle;
+        // TODO: fix food production en relacion a la gente trabajando en cultivos
+        if ((PlayerScript.currentFood + PlayerScript.foodProduction) <= PlayerScript.foodMax)
+            PlayerScript.currentFood += PlayerScript.foodProduction;
         else
-            PlayerScript.currentFood += PlayerScript.foodMax;
+            PlayerScript.currentFood = PlayerScript.foodMax;
         Debug.Log("MORE FOOD");
         StartCoroutine(StartFoodCycle());
     }
@@ -103,7 +107,7 @@ public class DayCycleScript : MonoBehaviour
         currentTimeUI -= Time.deltaTime;
         if (currentTimeUI <= 0)
             currentTimeUI = 20.0f;
-        UItime.SetText("" + ((int)currentTimeUI+1));
+        UItime.SetText("" + ((int)currentTimeUI + 1));
         UIdivinityCurrentMax.SetText("" + PlayerScript.currentDivinity + "/" + GetCurrentDay().maxDivinity);
         // Divinity bar filler
         float UIDivinityData = (PlayerScript.currentDivinity / GetCurrentDay().maxDivinity) - (GetCurrentDay().divinityConsumption / GetCurrentDay().maxDivinity);

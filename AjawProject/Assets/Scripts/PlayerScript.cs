@@ -16,6 +16,7 @@ public class PlayerScript : MonoBehaviour
     public static int reproductionLevel = 0;
     public static int reproductionMax = 0;
     public static int foodLevel = 0;
+    public static int foodProduction = 0;
     public static int foodMax = 0;
     public static int leftDoorLevel = 0;
     public static int rightDoorLevel = 0;
@@ -27,6 +28,7 @@ public class PlayerScript : MonoBehaviour
     public static float chanceObject = 0;
     
     public static EdificationScript.BUILDING_TYPE buildingTarget;
+    public static EdificationScript.Building[] buildingArrayTarget;
 
     // Cycles
     public static int foodTimeCycle = 0;
@@ -47,6 +49,7 @@ public class PlayerScript : MonoBehaviour
         foodTimeCycle = 12;
         divinityTimeCycle = 8;
         reproductionTimeCycle = 15;
+        chanceObject = 1;
     }
 
     void Update()

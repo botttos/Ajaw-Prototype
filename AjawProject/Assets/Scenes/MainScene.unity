@@ -1165,18 +1165,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   building:
   - cost: 0
-    capacity: 50
+    capacity: 10
   - cost: 60
-    capacity: 60
+    capacity: 20
   - cost: 170
-    capacity: 90
+    capacity: 40
   - cost: 420
-    capacity: 120
+    capacity: 60
   - cost: 1100
-    capacity: 180
+    capacity: 90
   - cost: 2100
-    capacity: 250
-  currentCapacity: 50
+    capacity: 150
+  currentCapacity: 10
   build: 5
   purchaseWindow: {fileID: 512334109}
   UIbefore: {fileID: 1936361051}
@@ -1402,18 +1402,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   building:
   - cost: 0
-    capacity: 50
+    capacity: 10
   - cost: 60
-    capacity: 60
+    capacity: 16
   - cost: 170
-    capacity: 90
+    capacity: 24
   - cost: 420
-    capacity: 120
+    capacity: 30
   - cost: 1100
-    capacity: 180
+    capacity: 40
   - cost: 2100
-    capacity: 250
-  currentCapacity: 50
+    capacity: 50
+  currentCapacity: 10
   build: 0
   purchaseWindow: {fileID: 512334109}
   UIbefore: {fileID: 1936361051}
@@ -2290,18 +2290,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   building:
   - cost: 0
-    capacity: 50
+    capacity: 10
   - cost: 60
-    capacity: 60
+    capacity: 20
   - cost: 170
-    capacity: 90
+    capacity: 40
   - cost: 420
-    capacity: 120
+    capacity: 80
   - cost: 1100
-    capacity: 180
+    capacity: 100
   - cost: 2100
-    capacity: 250
-  currentCapacity: 50
+    capacity: 150
+  currentCapacity: 10
   build: 4
   purchaseWindow: {fileID: 512334109}
   UIbefore: {fileID: 1936361051}
@@ -2789,18 +2789,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   building:
   - cost: 0
-    capacity: 50
+    capacity: 10
   - cost: 60
-    capacity: 60
+    capacity: 20
   - cost: 170
-    capacity: 90
+    capacity: 40
   - cost: 420
-    capacity: 120
+    capacity: 80
   - cost: 1100
-    capacity: 180
+    capacity: 100
   - cost: 2100
-    capacity: 250
-  currentCapacity: 50
+    capacity: 150
+  currentCapacity: 10
   build: 3
   purchaseWindow: {fileID: 512334109}
   UIbefore: {fileID: 1936361051}
@@ -2866,18 +2866,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   building:
   - cost: 0
-    capacity: 50
-  - cost: 60
-    capacity: 60
-  - cost: 170
-    capacity: 90
-  - cost: 420
-    capacity: 120
+    capacity: 10
+  - cost: 180
+    capacity: 12
+  - cost: 400
+    capacity: 16
+  - cost: 520
+    capacity: 20
   - cost: 1100
-    capacity: 180
-  - cost: 2100
-    capacity: 250
-  currentCapacity: 50
+    capacity: 25
+  - cost: 3000
+    capacity: 30
+  currentCapacity: 10
   build: 6
   purchaseWindow: {fileID: 512334109}
   UIbefore: {fileID: 1936361051}
@@ -3677,7 +3677,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 2, y: -123}
-  m_SizeDelta: {x: 234.38, y: 126.35}
+  m_SizeDelta: {x: 257.95, y: 126.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1352228518
 MonoBehaviour:
@@ -4879,18 +4879,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   building:
   - cost: 0
-    capacity: 50
+    capacity: 4
   - cost: 60
-    capacity: 60
+    capacity: 6
   - cost: 170
-    capacity: 90
+    capacity: 8
   - cost: 420
-    capacity: 120
+    capacity: 10
   - cost: 1100
-    capacity: 180
+    capacity: 12
   - cost: 2100
-    capacity: 250
-  currentCapacity: 50
+    capacity: 16
+  currentCapacity: 4
   build: 1
   purchaseWindow: {fileID: 512334109}
   UIbefore: {fileID: 1936361051}

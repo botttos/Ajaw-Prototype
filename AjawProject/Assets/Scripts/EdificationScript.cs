@@ -36,6 +36,7 @@ public class EdificationScript : MonoBehaviour
     public void PurchaseWindow()
     {
         PlayerScript.buildingTarget = build;
+        PlayerScript.buildingArrayTarget = building;
         UpdatePurchaseUI();
         purchaseWindow.SetActive(true);
         Time.timeScale = 0;
@@ -53,10 +54,10 @@ public class EdificationScript : MonoBehaviour
             case BUILDING_TYPE.HOUSE:
                 if (PlayerScript.housesLevel < 5)
                 {
-                    if (PlayerScript.currentDivinity >= building[PlayerScript.housesLevel + 1].cost)
+                    if (PlayerScript.currentDivinity >= PlayerScript.buildingArrayTarget[PlayerScript.housesLevel + 1].cost)
                     {
-                        PlayerScript.currentDivinity -= building[PlayerScript.housesLevel + 1].cost;
-                        PlayerScript.housesMax = building[PlayerScript.housesLevel + 1].capacity;
+                        PlayerScript.currentDivinity -= PlayerScript.buildingArrayTarget[PlayerScript.housesLevel + 1].cost;
+                        PlayerScript.housesMax = PlayerScript.buildingArrayTarget[PlayerScript.housesLevel + 1].capacity;
                         PlayerScript.housesLevel++;
                         purchaseSuccess = true;
                     }
@@ -65,10 +66,10 @@ public class EdificationScript : MonoBehaviour
             case BUILDING_TYPE.REPRODUCTION:
                 if (PlayerScript.reproductionLevel < 5)
                 {
-                    if (PlayerScript.currentDivinity >= building[PlayerScript.reproductionLevel + 1].cost)
+                    if (PlayerScript.currentDivinity >= PlayerScript.buildingArrayTarget[PlayerScript.reproductionLevel + 1].cost)
                     {
-                        PlayerScript.currentDivinity -= building[PlayerScript.reproductionLevel + 1].cost;
-                        PlayerScript.reproductionMax = building[PlayerScript.reproductionLevel + 1].capacity;
+                        PlayerScript.currentDivinity -= PlayerScript.buildingArrayTarget[PlayerScript.reproductionLevel + 1].cost;
+                        PlayerScript.reproductionMax = PlayerScript.buildingArrayTarget[PlayerScript.reproductionLevel + 1].capacity;
                         PlayerScript.reproductionLevel++;
                         purchaseSuccess = true;
                     }
@@ -77,10 +78,10 @@ public class EdificationScript : MonoBehaviour
             case BUILDING_TYPE.FOOD:
                 if (PlayerScript.foodLevel < 5)
                 {
-                    if (PlayerScript.currentDivinity >= building[PlayerScript.foodLevel + 1].cost)
+                    if (PlayerScript.currentDivinity >= PlayerScript.buildingArrayTarget[PlayerScript.foodLevel + 1].cost)
                     {
-                        PlayerScript.currentDivinity -= building[PlayerScript.foodLevel + 1].cost;
-                        PlayerScript.foodMax = building[PlayerScript.foodLevel + 1].capacity;
+                        PlayerScript.currentDivinity -= PlayerScript.buildingArrayTarget[PlayerScript.foodLevel + 1].cost;
+                        PlayerScript.foodMax = PlayerScript.buildingArrayTarget[PlayerScript.foodLevel + 1].capacity;
                         PlayerScript.foodLevel++;
                         purchaseSuccess = true;
                     }
@@ -89,9 +90,9 @@ public class EdificationScript : MonoBehaviour
             case BUILDING_TYPE.L_DOOR:
                 if (PlayerScript.leftDoorLevel < 5)
                 {
-                    if (PlayerScript.currentDivinity >= building[PlayerScript.leftDoorLevel + 1].cost)
+                    if (PlayerScript.currentDivinity >= PlayerScript.buildingArrayTarget[PlayerScript.leftDoorLevel + 1].cost)
                     {
-                        PlayerScript.currentDivinity -= building[PlayerScript.leftDoorLevel + 1].cost;
+                        PlayerScript.currentDivinity -= PlayerScript.buildingArrayTarget[PlayerScript.leftDoorLevel + 1].cost;
                         PlayerScript.leftDoorLevel++;
                         purchaseSuccess = true;
                     }
@@ -100,9 +101,9 @@ public class EdificationScript : MonoBehaviour
             case BUILDING_TYPE.R_DOOR:
                 if (PlayerScript.rightDoorLevel < 5)
                 {
-                    if (PlayerScript.currentDivinity >= building[PlayerScript.rightDoorLevel + 1].cost)
+                    if (PlayerScript.currentDivinity >= PlayerScript.buildingArrayTarget[PlayerScript.rightDoorLevel + 1].cost)
                     {
-                        PlayerScript.currentDivinity -= building[PlayerScript.rightDoorLevel + 1].cost;
+                        PlayerScript.currentDivinity -= PlayerScript.buildingArrayTarget[PlayerScript.rightDoorLevel + 1].cost;
                         PlayerScript.rightDoorLevel++;
                         purchaseSuccess = true;
                     }
@@ -111,10 +112,10 @@ public class EdificationScript : MonoBehaviour
             case BUILDING_TYPE.CHAMAN: // TODO QUE CUESTE SACRIFICIO HUMANO
                 if (PlayerScript.chamanLevel < 5)
                 {
-                    if (PlayerScript.currentDivinity >= building[PlayerScript.chamanLevel + 1].cost)
+                    if (PlayerScript.currentDivinity >= PlayerScript.buildingArrayTarget[PlayerScript.chamanLevel + 1].cost)
                     {
-                        PlayerScript.currentDivinity -= building[PlayerScript.chamanLevel + 1].cost;
-                        PlayerScript.armyPower = building[PlayerScript.chamanLevel + 1].capacity;
+                        PlayerScript.currentDivinity -= PlayerScript.buildingArrayTarget[PlayerScript.chamanLevel + 1].cost;
+                        PlayerScript.armyPower = PlayerScript.buildingArrayTarget[PlayerScript.chamanLevel + 1].capacity;
                         PlayerScript.chamanLevel++;
                         purchaseSuccess = true;
                     }
@@ -123,10 +124,10 @@ public class EdificationScript : MonoBehaviour
             case BUILDING_TYPE.SACERDOTE:
                 if (PlayerScript.sacerdoteLevel < 5)
                 {
-                    if (PlayerScript.currentDivinity >= building[PlayerScript.sacerdoteLevel + 1].cost)
+                    if (PlayerScript.currentDivinity >= PlayerScript.buildingArrayTarget[PlayerScript.sacerdoteLevel + 1].cost)
                     {
-                        PlayerScript.currentDivinity -= building[PlayerScript.sacerdoteLevel + 1].cost;
-                        PlayerScript.passiveDivinity = building[PlayerScript.sacerdoteLevel + 1].capacity;
+                        PlayerScript.currentDivinity -= PlayerScript.buildingArrayTarget[PlayerScript.sacerdoteLevel + 1].cost;
+                        PlayerScript.passiveDivinity = PlayerScript.buildingArrayTarget[PlayerScript.sacerdoteLevel + 1].capacity;
                         PlayerScript.sacerdoteLevel++;
                         purchaseSuccess = true;
                     }
@@ -135,10 +136,10 @@ public class EdificationScript : MonoBehaviour
             case BUILDING_TYPE.MERCADER: // TODO QUE CUESTE SACRIFICIO HUMANO
                 if (PlayerScript.mercaderLevel < 5)
                 {
-                    if (PlayerScript.currentFood >= building[PlayerScript.mercaderLevel + 1].cost)
+                    if (PlayerScript.currentFood >= PlayerScript.buildingArrayTarget[PlayerScript.mercaderLevel + 1].cost)
                     {
-                        PlayerScript.currentFood -= building[PlayerScript.mercaderLevel + 1].cost;
-                        PlayerScript.chanceObject = building[PlayerScript.mercaderLevel + 1].capacity;
+                        PlayerScript.currentFood -= PlayerScript.buildingArrayTarget[PlayerScript.mercaderLevel + 1].cost;
+                        PlayerScript.chanceObject = PlayerScript.buildingArrayTarget[PlayerScript.mercaderLevel + 1].capacity;
                         PlayerScript.mercaderLevel++;
                         purchaseSuccess = true;
                     }
