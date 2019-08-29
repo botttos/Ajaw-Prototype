@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DayCycleScript : MonoBehaviour
@@ -13,21 +14,23 @@ public class DayCycleScript : MonoBehaviour
     public Day[] days;
     [Header("UI")]
     public TextMeshProUGUI UItime;
+    public TextMeshProUGUI UIdivinityCurrentMax;
     public GameObject UIdivinity;
+    public GameObject UIdivinityYellowFiller;
+    public GameObject UIdivinityConsumption;
+    public GameObject UIborder;
 
     // private
-    private float currentTime = 0.0f;
-    private float currentTimeUI = 0.0f;
+    private float currentTimeUI = 20.0f;
 
     [System.Serializable]
     public class Day
     {
-        public int maxDivinity;
-        public int divinityConsumption;
+        public float maxDivinity;
+        public float divinityConsumption;
     }
     void Start()
     {
-        currentTime = 0.0f;
         // Day cycle
         StartCoroutine(StartDayCicle());
         // Food cycle
@@ -39,7 +42,6 @@ public class DayCycleScript : MonoBehaviour
     IEnumerator StartDayCicle()
     {
         yield return new WaitForSeconds(dayTime);
-        PlayerScript.currentWeek++;
         PlayerScript.currentFood -= foodConsumed;
         PlayerScript.currentDivinity -= days[PlayerScript.currentMonth].divinityConsumption;
 
@@ -52,13 +54,13 @@ public class DayCycleScript : MonoBehaviour
             // lose game
         }
 
+        PlayerScript.currentWeek++;
         // Si es multiplo de 5, sumamos un mes
         if (PlayerScript.currentWeek % 5 == 0)
         {
             PlayerScript.currentMonth++;
-            PlayerScript.currentDivinity = days[PlayerScript.currentMonth].divinityConsumption;
+            PlayerScript.currentDivinity = days[PlayerScript.currentMonth].maxDivinity;
         }
-        currentTime = 0.0f;
         Debug.Log("WEEK END");
         StartCoroutine(StartDayCicle());
         yield return null;
@@ -86,11 +88,32 @@ public class DayCycleScript : MonoBehaviour
     }
     void Update()
     {
-        currentTimeUI += Time.deltaTime;
-        if (currentTimeUI >= dayTime)
-            currentTimeUI = 0.0f;
-        UItime.SetText("" + ((int)currentTimeUI + 1));
+        // Time timer
+        currentTimeUI -= Time.deltaTime;
+        if (currentTimeUI <= 0)
+            currentTimeUI = 20.0f;
+        UItime.SetText("" + ((int)currentTimeUI+1));
+        UIdivinityCurrentMax.SetText("" + PlayerScript.currentDivinity + "/" + GetCurrentDay().maxDivinity);
+        // Divinity bar filler
+        float UIDivinityData = (PlayerScript.currentDivinity / GetCurrentDay().maxDivinity) - (GetCurrentDay().divinityConsumption / GetCurrentDay().maxDivinity);
+        if (UIDivinityData >= 0)
+            UIdivinity.transform.localScale = new Vector3(UIDivinityData, 1.0f, 1.0f);
+        else
+            UIdivinity.transform.localScale = new Vector3(0.0f, 1.0f, 1.0f);
+        // Empty filler
+        if (PlayerScript.currentDivinity > 0)
+            UIdivinityConsumption.transform.localScale = new Vector3(PlayerScript.currentDivinity / GetCurrentDay().maxDivinity - 1, 1.0f, 1.0f);
+        else
+            UIdivinityConsumption.transform.localScale = new Vector3(-1 + (GetCurrentDay().divinityConsumption / GetCurrentDay().maxDivinity), 1.0f, 1.0f);
 
-        UIdivinity.transform.localScale = new Vector3(PlayerScript.currentDivinity / GetCurrentDay().maxDivinity, 1.0f, 1.0f);
+        if (PlayerScript.currentDivinity >= GetCurrentDay().divinityConsumption)
+        {
+            UIborder.GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            UIborder.GetComponent<Image>().color = Color.red;
+        }
+
     }
 }
