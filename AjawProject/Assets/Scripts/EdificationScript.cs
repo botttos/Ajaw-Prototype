@@ -189,7 +189,7 @@ public class EdificationScript : MonoBehaviour
                 {
                     UIbefore.SetText("Capacidad: " + currentCapacity);
                     UIafter.SetText("Capacidad: " + building[PlayerScript.housesLevel + 1].capacity);
-                    UIcost.SetText("" + building[PlayerScript.housesLevel + 1].cost);
+                    UIcost.SetText("Divinity:\n" + building[PlayerScript.housesLevel + 1].cost);
                 }
                 else
                 {
@@ -203,7 +203,7 @@ public class EdificationScript : MonoBehaviour
                 {
                     UIbefore.SetText("Capacidad: " + currentCapacity);
                     UIafter.SetText("Capacidad: " + building[PlayerScript.reproductionLevel + 1].capacity);
-                    UIcost.SetText("" + building[PlayerScript.reproductionLevel + 1].cost);
+                    UIcost.SetText("Divinity:\n" + building[PlayerScript.reproductionLevel + 1].cost);
                 }
                 else
                 {
@@ -217,7 +217,7 @@ public class EdificationScript : MonoBehaviour
                 {
                     UIbefore.SetText("Capacidad: " + currentCapacity);
                     UIafter.SetText("Capacidad: " + building[PlayerScript.foodLevel + 1].capacity);
-                    UIcost.SetText("" + building[PlayerScript.foodLevel + 1].cost);
+                    UIcost.SetText("Divinity:\n" + building[PlayerScript.foodLevel + 1].cost);
                 }
                 else
                 {
@@ -231,7 +231,7 @@ public class EdificationScript : MonoBehaviour
                 {
                     UIbefore.SetText("Resistencia: " + currentCapacity);
                     UIafter.SetText("Resistencia: " + building[PlayerScript.leftDoorLevel + 1].capacity);
-                    UIcost.SetText("" + building[PlayerScript.leftDoorLevel + 1].cost);
+                    UIcost.SetText("Divinity:\n" + building[PlayerScript.leftDoorLevel + 1].cost);
                 }
                 else
                 {
@@ -245,7 +245,7 @@ public class EdificationScript : MonoBehaviour
                 {
                     UIbefore.SetText("Resistencia: " + currentCapacity);
                     UIafter.SetText("Resistencia: " + building[PlayerScript.rightDoorLevel + 1].capacity);
-                    UIcost.SetText("" + building[PlayerScript.rightDoorLevel + 1].cost);
+                    UIcost.SetText("Divinity:\n" + building[PlayerScript.rightDoorLevel + 1].cost);
                 }
                 else
                 {
@@ -259,7 +259,7 @@ public class EdificationScript : MonoBehaviour
                 {
                     UIbefore.SetText("Fuerza del ejército: " + currentCapacity);
                     UIafter.SetText("Fuerza del ejército: " + building[PlayerScript.chamanLevel + 1].capacity);
-                    UIcost.SetText("" + building[PlayerScript.chamanLevel + 1].cost);
+                    UIcost.SetText("Humanos:\n" + building[PlayerScript.chamanLevel + 1].cost);
                 }
                 else
                 {
@@ -273,7 +273,7 @@ public class EdificationScript : MonoBehaviour
                 {
                     UIbefore.SetText("Divinidad pasiva: " + currentCapacity);
                     UIafter.SetText("Divinidad pasiva: " + building[PlayerScript.sacerdoteLevel + 1].capacity);
-                    UIcost.SetText("" + building[PlayerScript.sacerdoteLevel + 1].cost);
+                    UIcost.SetText("Divinity:\n" + building[PlayerScript.sacerdoteLevel + 1].cost);
                 }
                 else
                 {
@@ -285,9 +285,9 @@ public class EdificationScript : MonoBehaviour
             case BUILDING_TYPE.MERCADER:
                 if (PlayerScript.mercaderLevel < 5)
                 {
-                    UIbefore.SetText("Frecuencia de objetos.");
-                    UIafter.SetText("Objetos más frecuentes" + building[PlayerScript.mercaderLevel + 1].capacity);
-                    UIcost.SetText("" + building[PlayerScript.mercaderLevel + 1].cost);
+                    UIbefore.SetText("Frecuencia de objetos");
+                    UIafter.SetText("Aumentar frecuencia");
+                    UIcost.SetText("Alimentos:\n" + building[PlayerScript.mercaderLevel + 1].cost);
                 }
                 else
                 {

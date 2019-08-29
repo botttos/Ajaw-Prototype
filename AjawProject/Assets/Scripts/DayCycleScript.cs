@@ -16,7 +16,6 @@ public class DayCycleScript : MonoBehaviour
     public TextMeshProUGUI UItime;
     public TextMeshProUGUI UIdivinityCurrentMax;
     public GameObject UIdivinity;
-    public GameObject UIdivinityYellowFiller;
     public GameObject UIdivinityConsumption;
     public GameObject UIborder;
 

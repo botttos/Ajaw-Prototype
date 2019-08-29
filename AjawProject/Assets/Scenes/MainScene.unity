@@ -425,8 +425,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1597310472}
-        m_MethodName: UpgradeHouse
+      - m_Target: {fileID: 1692196435}
+        m_MethodName: PurchaseWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 140086796}
   - component: {fileID: 140086795}
   m_Layer: 0
-  m_Name: foodText
+  m_Name: izquierdaText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 246301636}
   - component: {fileID: 246301635}
   m_Layer: 0
-  m_Name: foodText
+  m_Name: chamanText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -909,8 +909,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1597310472}
-        m_MethodName: UpgradeHouse
+      - m_Target: {fileID: 912824685}
+        m_MethodName: PurchaseWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1119,6 +1119,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356289973}
   m_CullTransparentMesh: 0
+--- !u!1 &417790431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 417790434}
+  - component: {fileID: 417790433}
+  - component: {fileID: 417790432}
+  m_Layer: 0
+  m_Name: Chaman
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &417790432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417790431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337870e0f24b64542aa248ccb23d5821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buiildingType: 5
+  UIlevel: {fileID: 246301635}
+--- !u!114 &417790433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417790431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734e5f67b1f2870478f22186c527f42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building:
+  - cost: 0
+    capacity: 50
+  - cost: 60
+    capacity: 60
+  - cost: 170
+    capacity: 90
+  - cost: 420
+    capacity: 120
+  - cost: 1100
+    capacity: 180
+  - cost: 2100
+    capacity: 250
+  currentCapacity: 50
+  build: 5
+  purchaseWindow: {fileID: 512334109}
+  UIbefore: {fileID: 1936361051}
+  UIafter: {fileID: 1800740529}
+  UIcost: {fileID: 1188786098}
+--- !u!4 &417790434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417790431}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 441.53357, y: 302.8424, z: -7.8051577}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &420571080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,6 +1356,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420571080}
   m_CullTransparentMesh: 0
+--- !u!1 &492899386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 492899389}
+  - component: {fileID: 492899388}
+  - component: {fileID: 492899387}
+  m_Layer: 0
+  m_Name: Casas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &492899387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492899386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337870e0f24b64542aa248ccb23d5821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buiildingType: 0
+  UIlevel: {fileID: 1192236545}
+--- !u!114 &492899388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492899386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734e5f67b1f2870478f22186c527f42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building:
+  - cost: 0
+    capacity: 50
+  - cost: 60
+    capacity: 60
+  - cost: 170
+    capacity: 90
+  - cost: 420
+    capacity: 120
+  - cost: 1100
+    capacity: 180
+  - cost: 2100
+    capacity: 250
+  currentCapacity: 50
+  build: 0
+  purchaseWindow: {fileID: 512334109}
+  UIbefore: {fileID: 1936361051}
+  UIafter: {fileID: 1800740529}
+  UIcost: {fileID: 1188786098}
+--- !u!4 &492899389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492899386}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 441.53357, y: 302.8424, z: -7.8051577}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &512334109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,7 +1607,7 @@ GameObject:
   - component: {fileID: 649950132}
   - component: {fileID: 649950131}
   m_Layer: 0
-  m_Name: foodText
+  m_Name: reproduccionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1987,7 +2141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.99607843, b: 0.61960787, a: 0.42745098}
+  m_Color: {r: 1, g: 0.99607843, b: 0.61960787, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2023,7 +2177,7 @@ GameObject:
   - component: {fileID: 907882882}
   - component: {fileID: 907882881}
   m_Layer: 0
-  m_Name: foodText
+  m_Name: sacerdoteText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2090,6 +2244,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907882879}
   m_CullTransparentMesh: 0
+--- !u!1 &912824683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 912824686}
+  - component: {fileID: 912824685}
+  - component: {fileID: 912824684}
+  m_Layer: 0
+  m_Name: Puerta derecha
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &912824684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912824683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337870e0f24b64542aa248ccb23d5821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buiildingType: 4
+  UIlevel: {fileID: 1773495800}
+--- !u!114 &912824685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912824683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734e5f67b1f2870478f22186c527f42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building:
+  - cost: 0
+    capacity: 50
+  - cost: 60
+    capacity: 60
+  - cost: 170
+    capacity: 90
+  - cost: 420
+    capacity: 120
+  - cost: 1100
+    capacity: 180
+  - cost: 2100
+    capacity: 250
+  currentCapacity: 50
+  build: 4
+  purchaseWindow: {fileID: 512334109}
+  UIbefore: {fileID: 1936361051}
+  UIafter: {fileID: 1800740529}
+  UIcost: {fileID: 1188786098}
+--- !u!4 &912824686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912824683}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 441.53357, y: 302.8424, z: -7.8051577}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &914452942
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,7 +2421,6 @@ MonoBehaviour:
   UItime: {fileID: 1033875841}
   UIdivinityCurrentMax: {fileID: 2088589480}
   UIdivinity: {fileID: 1951372605}
-  UIdivinityYellowFiller: {fileID: 891702268}
   UIdivinityConsumption: {fileID: 1469543028}
   UIborder: {fileID: 2030626031}
 --- !u!1 &994844535
@@ -2513,6 +2743,160 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033875839}
   m_CullTransparentMesh: 0
+--- !u!1 &1100115369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1100115372}
+  - component: {fileID: 1100115371}
+  - component: {fileID: 1100115370}
+  m_Layer: 0
+  m_Name: Puerta izquierda
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1100115370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100115369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337870e0f24b64542aa248ccb23d5821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buiildingType: 3
+  UIlevel: {fileID: 140086795}
+--- !u!114 &1100115371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100115369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734e5f67b1f2870478f22186c527f42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building:
+  - cost: 0
+    capacity: 50
+  - cost: 60
+    capacity: 60
+  - cost: 170
+    capacity: 90
+  - cost: 420
+    capacity: 120
+  - cost: 1100
+    capacity: 180
+  - cost: 2100
+    capacity: 250
+  currentCapacity: 50
+  build: 3
+  purchaseWindow: {fileID: 512334109}
+  UIbefore: {fileID: 1936361051}
+  UIafter: {fileID: 1800740529}
+  UIcost: {fileID: 1188786098}
+--- !u!4 &1100115372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100115369}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 441.53357, y: 302.8424, z: -7.8051577}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1138151787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1138151790}
+  - component: {fileID: 1138151789}
+  - component: {fileID: 1138151788}
+  m_Layer: 0
+  m_Name: Sacerdote
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1138151788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138151787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337870e0f24b64542aa248ccb23d5821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buiildingType: 6
+  UIlevel: {fileID: 907882881}
+--- !u!114 &1138151789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138151787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734e5f67b1f2870478f22186c527f42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building:
+  - cost: 0
+    capacity: 50
+  - cost: 60
+    capacity: 60
+  - cost: 170
+    capacity: 90
+  - cost: 420
+    capacity: 120
+  - cost: 1100
+    capacity: 180
+  - cost: 2100
+    capacity: 250
+  currentCapacity: 50
+  build: 6
+  purchaseWindow: {fileID: 512334109}
+  UIbefore: {fileID: 1936361051}
+  UIafter: {fileID: 1800740529}
+  UIcost: {fileID: 1188786098}
+--- !u!4 &1138151790
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138151787}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 441.53357, y: 302.8424, z: -7.8051577}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1188786096
 GameObject:
   m_ObjectHideFlags: 0
@@ -2547,7 +2931,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -60, y: 1}
+  m_AnchoredPosition: {x: -60, y: 30}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188786098
@@ -2616,7 +3000,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2636,7 +3020,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 37.076935, y: 0, z: -89.83972, w: 0}
+  m_margin: {x: 37.076935, y: 0, z: -89.83972, w: -183.27292}
   m_textInfo:
     textComponent: {fileID: 0}
     characterCount: 3
@@ -2813,7 +3197,7 @@ GameObject:
   - component: {fileID: 1192236546}
   - component: {fileID: 1192236545}
   m_Layer: 0
-  m_Name: foodText
+  m_Name: casasText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2959,8 +3343,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1597310472}
-        m_MethodName: UpgradeHouse
+      - m_Target: {fileID: 1100115371}
+        m_MethodName: PurchaseWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3140,7 +3524,7 @@ GameObject:
   - component: {fileID: 1259592964}
   - component: {fileID: 1259592963}
   m_Layer: 0
-  m_Name: Upgrade plebeyos
+  m_Name: Upgrade casas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3206,8 +3590,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1597310472}
-        m_MethodName: UpgradeHouse
+      - m_Target: {fileID: 492899388}
+        m_MethodName: PurchaseWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3293,7 +3677,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 2, y: -123}
-  m_SizeDelta: {x: 152.6, y: 69.6}
+  m_SizeDelta: {x: 234.38, y: 126.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1352228518
 MonoBehaviour:
@@ -4211,6 +4595,7 @@ GameObject:
   - component: {fileID: 1597310473}
   - component: {fileID: 1597310472}
   - component: {fileID: 1597310471}
+  - component: {fileID: 1597310474}
   m_Layer: 0
   m_Name: Cultivos
   m_TagString: Untagged
@@ -4231,7 +4616,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIcapacity: {fileID: 1460057015}
-  UIlevel: {fileID: 189577846}
 --- !u!114 &1597310472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4275,8 +4659,22 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1597310474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597310470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337870e0f24b64542aa248ccb23d5821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buiildingType: 2
+  UIlevel: {fileID: 189577846}
 --- !u!1 &1611216981
 GameObject:
   m_ObjectHideFlags: 0
@@ -4368,7 +4766,7 @@ GameObject:
   - component: {fileID: 1621671769}
   - component: {fileID: 1621671768}
   m_Layer: 0
-  m_Name: foodText
+  m_Name: mercaderText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4435,6 +4833,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621671766}
   m_CullTransparentMesh: 0
+--- !u!1 &1692196433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1692196436}
+  - component: {fileID: 1692196435}
+  - component: {fileID: 1692196434}
+  m_Layer: 0
+  m_Name: Reproduccion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1692196434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692196433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337870e0f24b64542aa248ccb23d5821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buiildingType: 1
+  UIlevel: {fileID: 649950131}
+--- !u!114 &1692196435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692196433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734e5f67b1f2870478f22186c527f42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building:
+  - cost: 0
+    capacity: 50
+  - cost: 60
+    capacity: 60
+  - cost: 170
+    capacity: 90
+  - cost: 420
+    capacity: 120
+  - cost: 1100
+    capacity: 180
+  - cost: 2100
+    capacity: 250
+  currentCapacity: 50
+  build: 1
+  purchaseWindow: {fileID: 512334109}
+  UIbefore: {fileID: 1936361051}
+  UIafter: {fileID: 1800740529}
+  UIcost: {fileID: 1188786098}
+--- !u!4 &1692196436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692196433}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 441.53357, y: 302.8424, z: -7.8051577}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703592927
 GameObject:
   m_ObjectHideFlags: 0
@@ -4740,8 +5215,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1597310472}
-        m_MethodName: UpgradeHouse
+      - m_Target: {fileID: 1919755660}
+        m_MethodName: PurchaseWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4802,7 +5277,7 @@ GameObject:
   - component: {fileID: 1773495801}
   - component: {fileID: 1773495800}
   m_Layer: 0
-  m_Name: foodText
+  m_Name: derechaText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5246,7 +5721,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 37.076935, y: 0, z: -228.48737, w: 0}
+  m_margin: {x: -39.721714, y: 0, z: -305.2861, w: 0}
   m_textInfo:
     textComponent: {fileID: 0}
     characterCount: 7
@@ -5283,6 +5758,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800740527}
   m_CullTransparentMesh: 0
+--- !u!1 &1919755658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1919755661}
+  - component: {fileID: 1919755660}
+  - component: {fileID: 1919755659}
+  m_Layer: 0
+  m_Name: Mercader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1919755659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919755658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337870e0f24b64542aa248ccb23d5821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buiildingType: 7
+  UIlevel: {fileID: 1621671768}
+--- !u!114 &1919755660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919755658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734e5f67b1f2870478f22186c527f42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building:
+  - cost: 0
+    capacity: 50
+  - cost: 60
+    capacity: 60
+  - cost: 170
+    capacity: 90
+  - cost: 420
+    capacity: 120
+  - cost: 1100
+    capacity: 180
+  - cost: 2100
+    capacity: 250
+  currentCapacity: 50
+  build: 7
+  purchaseWindow: {fileID: 512334109}
+  UIbefore: {fileID: 1936361051}
+  UIafter: {fileID: 1800740529}
+  UIcost: {fileID: 1188786098}
+--- !u!4 &1919755661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919755658}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 441.53357, y: 302.8424, z: -7.8051577}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1936361049
 GameObject:
   m_ObjectHideFlags: 0
@@ -5406,7 +5958,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 37.076935, y: 0, z: -284.1869, w: 0}
+  m_margin: {x: -70.73053, y: 0, z: -391.9945, w: 0}
   m_textInfo:
     textComponent: {fileID: 0}
     characterCount: 5
@@ -5671,8 +6223,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1597310472}
-        m_MethodName: UpgradeHouse
+      - m_Target: {fileID: 1138151789}
+        m_MethodName: PurchaseWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5800,8 +6352,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1597310472}
-        m_MethodName: UpgradeHouse
+      - m_Target: {fileID: 417790433}
+        m_MethodName: PurchaseWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
