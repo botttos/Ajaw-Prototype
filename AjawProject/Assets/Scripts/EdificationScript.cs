@@ -35,6 +35,7 @@ public class EdificationScript : MonoBehaviour
 
     public void PurchaseWindow()
     {
+        PlayerScript.buildingTarget = build;
         UpdatePurchaseUI();
         purchaseWindow.SetActive(true);
         Time.timeScale = 0;
@@ -47,7 +48,7 @@ public class EdificationScript : MonoBehaviour
     public void UpgradeBuilding()
     {
         bool purchaseSuccess = false;
-        switch (build)
+        switch (PlayerScript.buildingTarget)
         {
             case BUILDING_TYPE.HOUSE:
                 if (PlayerScript.housesLevel < 5)
@@ -55,6 +56,7 @@ public class EdificationScript : MonoBehaviour
                     if (PlayerScript.currentDivinity >= building[PlayerScript.housesLevel + 1].cost)
                     {
                         PlayerScript.currentDivinity -= building[PlayerScript.housesLevel + 1].cost;
+                        PlayerScript.housesMax = building[PlayerScript.housesLevel + 1].capacity;
                         PlayerScript.housesLevel++;
                         purchaseSuccess = true;
                     }
@@ -66,6 +68,7 @@ public class EdificationScript : MonoBehaviour
                     if (PlayerScript.currentDivinity >= building[PlayerScript.reproductionLevel + 1].cost)
                     {
                         PlayerScript.currentDivinity -= building[PlayerScript.reproductionLevel + 1].cost;
+                        PlayerScript.reproductionMax = building[PlayerScript.reproductionLevel + 1].capacity;
                         PlayerScript.reproductionLevel++;
                         purchaseSuccess = true;
                     }
@@ -77,6 +80,7 @@ public class EdificationScript : MonoBehaviour
                     if (PlayerScript.currentDivinity >= building[PlayerScript.foodLevel + 1].cost)
                     {
                         PlayerScript.currentDivinity -= building[PlayerScript.foodLevel + 1].cost;
+                        PlayerScript.foodMax = building[PlayerScript.foodLevel + 1].capacity;
                         PlayerScript.foodLevel++;
                         purchaseSuccess = true;
                     }

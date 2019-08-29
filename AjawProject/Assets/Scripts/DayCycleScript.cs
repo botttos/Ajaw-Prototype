@@ -69,8 +69,11 @@ public class DayCycleScript : MonoBehaviour
     IEnumerator StartFoodCycle()
     {
         yield return new WaitForSeconds(PlayerScript.foodTimeCycle);
-        // TODO: setear limitacion de comida
-        PlayerScript.currentFood += PlayerScript.foodTimeCycle;
+
+        if ((PlayerScript.currentFood + PlayerScript.foodTimeCycle) <= PlayerScript.foodMax)
+            PlayerScript.currentFood += PlayerScript.foodTimeCycle;
+        else
+            PlayerScript.currentFood += PlayerScript.foodMax;
         Debug.Log("MORE FOOD");
         StartCoroutine(StartFoodCycle());
     }

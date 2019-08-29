@@ -12,13 +12,17 @@ public class PlayerScript : MonoBehaviour
     public static int currentWeek = 0;
     // Buildings level
     public static int housesLevel = 0;
+    public static int housesMax = 0;
     public static int reproductionLevel = 0;
+    public static int reproductionMax = 0;
     public static int foodLevel = 0;
+    public static int foodMax = 0;
     public static int leftDoorLevel = 0;
     public static int rightDoorLevel = 0;
     public static int chamanLevel = 0;
     public static int sacerdoteLevel = 0;
     public static int mercaderLevel = 0;
+    public static EdificationScript.BUILDING_TYPE buildingTarget;
 
     // 
     public static int foodTimeCycle = 0;
