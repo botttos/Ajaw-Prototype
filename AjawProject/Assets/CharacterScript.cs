@@ -34,19 +34,42 @@ public class CharacterScript : MonoBehaviour
                 if (defaultList.transform.GetChild(j).GetComponent<CharacterScript>().currentEnergy > defaultList.transform.GetChild(moreEnergy).GetComponent<CharacterScript>().currentEnergy)
                     moreEnergy = j;
             }
-            if (workIn == "food")
+            if (workIn == "food" && PlayerScript.currentFoodWorkers < PlayerScript.foodBuildingCapacity)
             {
                 defaultList.transform.GetChild(moreEnergy).GetComponent<CharacterScript>().type = HUMAN_TYPE.FOOD;
                 defaultList.transform.GetChild(moreEnergy).GetComponent<CharacterScript>().working = true;
                 //defaultList.transform.GetChild(moreEnergy).transform.Find("barra energia/fill").GetComponent<Image>().color = Color.blue;
                 defaultList.transform.GetChild(moreEnergy).transform.parent = foodList.transform;
+                PlayerScript.currentFoodWorkers++;
+                PlayerScript.houseWorkers--;
             }
-            else if (workIn == "reproduction")
+            else if (workIn == "reproduction" && defaultList.transform.childCount > 1 && PlayerScript.reproductionWorkers*2 < PlayerScript.reproductionHouseCapacity)
             {
+                int moreEnergy2;
+                if (moreEnergy != 0)
+                    moreEnergy2 = 0;
+                else
+                    moreEnergy2 = 1;
+                for (int k = 0; k < defaultList.transform.childCount; k++)
+                {
+                    if (k != moreEnergy)
+                    {
+                        if (defaultList.transform.GetChild(k).GetComponent<CharacterScript>().currentEnergy > defaultList.transform.GetChild(moreEnergy2).GetComponent<CharacterScript>().currentEnergy)
+                            moreEnergy2 = k;
+                    }
+                }
                 defaultList.transform.GetChild(moreEnergy).GetComponent<CharacterScript>().type = HUMAN_TYPE.REPRODUCT;
                 defaultList.transform.GetChild(moreEnergy).GetComponent<CharacterScript>().working = true;
+                defaultList.transform.GetChild(moreEnergy2).GetComponent<CharacterScript>().type = HUMAN_TYPE.REPRODUCT;
+                defaultList.transform.GetChild(moreEnergy2).GetComponent<CharacterScript>().working = true;
                 //defaultList.transform.GetChild(moreEnergy).transform.Find("barra energia/fill").GetComponent<Image>().color = Color.yellow;
                 defaultList.transform.GetChild(moreEnergy).transform.parent = reproductionList.transform;
+                if (moreEnergy > moreEnergy2)
+                    defaultList.transform.GetChild(moreEnergy - 1).transform.parent = reproductionList.transform;
+                else
+                    defaultList.transform.GetChild(moreEnergy).transform.parent = reproductionList.transform;
+                PlayerScript.reproductionWorkers++;
+                PlayerScript.houseWorkers -= 2;
             }
         }
     }
@@ -56,27 +79,23 @@ public class CharacterScript : MonoBehaviour
         if (foodList.transform.childCount > 0)
         {
             int lessEnergy = 0;
-            for (int j = 0; j < foodList.transform.childCount; j++)
-            {
-                if (foodList.transform.GetChild(j).GetComponent<CharacterScript>().currentEnergy < foodList.transform.GetChild(lessEnergy).GetComponent<CharacterScript>().currentEnergy)
-                    lessEnergy = j;
-            }
             foodList.transform.GetChild(lessEnergy).GetComponent<CharacterScript>().working = false;
             foodList.transform.GetChild(lessEnergy).transform.parent = defaultList.transform;
+            PlayerScript.currentFoodWorkers--;
+            PlayerScript.houseWorkers++;
         }
     }
     public void ReturnToHousesReproduction()
     {
-        if (reproductionList.transform.childCount > 0)
+        if (reproductionList.transform.childCount > 1)
         {
             int lessEnergy = 0;
-            for (int j = 0; j < reproductionList.transform.childCount; j++)
-            {
-                if (reproductionList.transform.GetChild(j).GetComponent<CharacterScript>().currentEnergy < reproductionList.transform.GetChild(lessEnergy).GetComponent<CharacterScript>().currentEnergy)
-                    lessEnergy = j;
-            }
             reproductionList.transform.GetChild(lessEnergy).GetComponent<CharacterScript>().working = false;
+            reproductionList.transform.GetChild(lessEnergy + 1).GetComponent<CharacterScript>().working = false;
             reproductionList.transform.GetChild(lessEnergy).transform.parent = defaultList.transform;
+            reproductionList.transform.GetChild(lessEnergy).transform.parent = defaultList.transform;
+            PlayerScript.reproductionWorkers--;
+            PlayerScript.houseWorkers += 2;
         }
     }
     public void Update()
@@ -91,7 +110,22 @@ public class CharacterScript : MonoBehaviour
         if (currentEnergy > 0)
             UIdivinity.transform.localScale = new Vector3(currentEnergy / maxEnergy, 1.0f, 1.0f);
         else
+        {
             Destroy(gameObject);
-        // TODO: kill human
+            PlayerScript.houseWorkers--;
+        }
     }
 }
+
+/*for (int j = 0; j < foodList.transform.childCount; j++)
+{
+    if (foodList.transform.GetChild(j).GetComponent<CharacterScript>().currentEnergy < foodList.transform.GetChild(lessEnergy).GetComponent<CharacterScript>().currentEnergy)
+        lessEnergy = j;
+}*/
+
+
+/*for (int j = 0; j < reproductionList.transform.childCount; j++)
+{
+if (reproductionList.transform.GetChild(j).GetComponent<CharacterScript>().currentEnergy < reproductionList.transform.GetChild(lessEnergy).GetComponent<CharacterScript>().currentEnergy)
+    lessEnergy = j;
+}*/

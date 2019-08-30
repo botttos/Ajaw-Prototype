@@ -9,7 +9,8 @@ public class DayCycleScript : MonoBehaviour
     [Header("Variables de semana")]
     public float dayTime = 0.0f;
     [Header("Estadísticas")]
-    public float foodConsumed = 10.0f;
+    public float foodConsumedPerHuman = 2.0f;
+    public float reproductionTimeCycle = 8;
     [Header("Datos por día")]
     public Day[] days;
     [Header("UI")]
@@ -43,7 +44,7 @@ public class DayCycleScript : MonoBehaviour
     IEnumerator StartDayCicle()
     {
         yield return new WaitForSeconds(dayTime);
-        PlayerScript.currentFood -= foodConsumed;
+        PlayerScript.currentFood -= foodConsumedPerHuman*(PlayerScript.currentFoodWorkers+PlayerScript.reproductionWorkers+PlayerScript.houseWorkers);
         PlayerScript.currentDivinity -= days[PlayerScript.currentMonth].divinityConsumption;
 
         if (Random.Range(0, 10) > PlayerScript.chanceObject) //TODO: añadir item
@@ -73,8 +74,8 @@ public class DayCycleScript : MonoBehaviour
     {
         yield return new WaitForSeconds(PlayerScript.foodTimeCycle);
         // TODO: fix food production en relacion a la gente trabajando en cultivos
-        if ((PlayerScript.currentFood + PlayerScript.foodProduction) <= PlayerScript.foodMax)
-            PlayerScript.currentFood += PlayerScript.foodProduction;
+        if ((PlayerScript.currentFood + PlayerScript.currentFoodWorkers * 2) <= PlayerScript.foodMax)
+            PlayerScript.currentFood += PlayerScript.currentFoodWorkers;
         else
             PlayerScript.currentFood = PlayerScript.foodMax;
         Debug.Log("MORE FOOD");
@@ -82,9 +83,9 @@ public class DayCycleScript : MonoBehaviour
     }
     IEnumerator StartReproductionCycle()
     {
-        yield return new WaitForSeconds(PlayerScript.reproductionTimeCycle);
-        // TODO: añadir más población
-        Debug.Log("MORE POPULATION");
+        yield return new WaitForSeconds(reproductionTimeCycle);
+        for (int i = 0; i < PlayerScript.reproductionWorkers; i++)
+            AddObjectToList.AddPopulation();
         StartCoroutine(StartReproductionCycle());
     }
     IEnumerator StartPassiveDivinity()

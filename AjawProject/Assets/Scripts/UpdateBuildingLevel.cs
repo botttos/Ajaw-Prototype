@@ -16,10 +16,10 @@ public class UpdateBuildingLevel : MonoBehaviour
                 UIlevel.text = ("+" + (PlayerScript.housesLevel + 1));
                 break;
             case EdificationScript.BUILDING_TYPE.REPRODUCTION:
-                UIlevel.text = ("+" + (PlayerScript.reproductionLevel + 1));
+                UIlevel.text = ("+" + (PlayerScript.reproductionHouseLevel + 1));
                 break;
             case EdificationScript.BUILDING_TYPE.FOOD:
-                UIlevel.text = ("+" + (PlayerScript.foodLevel + 1));
+                UIlevel.text = ("+" + (PlayerScript.foodBuildingLevel + 1));
                 break;
             case EdificationScript.BUILDING_TYPE.L_DOOR:
                 UIlevel.text = ("+" + (PlayerScript.leftDoorLevel + 1));
