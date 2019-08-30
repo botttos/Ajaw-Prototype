@@ -43,7 +43,7 @@ public class CharacterScript : MonoBehaviour
                 PlayerScript.currentFoodWorkers++;
                 PlayerScript.houseWorkers--;
             }
-            else if (workIn == "reproduction" && defaultList.transform.childCount > 1 && PlayerScript.reproductionWorkers*2 < PlayerScript.reproductionHouseCapacity)
+            else if (workIn == "reproduction" && defaultList.transform.childCount > 1 && PlayerScript.reproductionWorkers * 2 < PlayerScript.reproductionHouseCapacity)
             {
                 int moreEnergy2;
                 if (moreEnergy != 0)
@@ -99,15 +99,24 @@ public class CharacterScript : MonoBehaviour
     }
     public void ReturnToHousesReproduction()
     {
-        if (reproductionList.transform.childCount > 1)
+        if (reproductionList.transform.childCount > 0)
         {
             int lessEnergy = 0;
+
+            // First human
             reproductionList.transform.GetChild(lessEnergy).GetComponent<CharacterScript>().working = false;
-            reproductionList.transform.GetChild(lessEnergy + 1).GetComponent<CharacterScript>().working = false;
             reproductionList.transform.GetChild(lessEnergy).transform.parent = defaultList.transform;
-            reproductionList.transform.GetChild(lessEnergy).transform.parent = defaultList.transform;
-            PlayerScript.reproductionWorkers--;
-            PlayerScript.houseWorkers += 2;
+            PlayerScript.houseWorkers++;
+            PlayerScript.reproductionWorkers -= 0.5f;
+
+            // Second human
+            if (reproductionList.transform.childCount > 0)
+            {
+                reproductionList.transform.GetChild(lessEnergy).GetComponent<CharacterScript>().working = false;
+                reproductionList.transform.GetChild(lessEnergy).transform.parent = defaultList.transform;
+                PlayerScript.reproductionWorkers -= 0.5f;
+                PlayerScript.houseWorkers++;
+            }
         }
     }
     public void Update()
@@ -123,8 +132,11 @@ public class CharacterScript : MonoBehaviour
             UIdivinity.transform.localScale = new Vector3(currentEnergy / maxEnergy, 1.0f, 1.0f);
         else
         {
+            if (gameObject.GetComponent<CharacterScript>().type == HUMAN_TYPE.FOOD)
+                PlayerScript.currentFoodWorkers--;
+            else if (gameObject.GetComponent<CharacterScript>().type == HUMAN_TYPE.REPRODUCT)
+                PlayerScript.reproductionWorkers -= 0.5f;
             Destroy(gameObject);
-            PlayerScript.houseWorkers--;
         }
     }
 }

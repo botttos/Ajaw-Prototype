@@ -17,7 +17,7 @@ public class PlayerScript : MonoBehaviour
     public static int houseWorkers = 0;
     public static int reproductionHouseLevel = 0;
     public static int reproductionHouseCapacity = 4;
-    public static int reproductionWorkers = 0;
+    public static float reproductionWorkers = 0;
     public static int foodBuildingLevel = 0;
     public static int foodBuildingCapacity = 4;
     public static int currentFoodWorkers = 0;
@@ -63,7 +63,7 @@ public class PlayerScript : MonoBehaviour
         UImonth.SetText("" + (1 + currentMonth));
         UIweek.SetText("" + (1 + currentWeek));
         UImaxPopulation.SetText("" + (currentFoodWorkers + houseWorkers + (reproductionWorkers*2)) + "/" + housesCapacity);
-        UImaxReproductionWorkers.SetText("" + reproductionWorkers*2 + "/" + reproductionHouseCapacity);
+        UImaxReproductionWorkers.SetText("" + (int)reproductionWorkers*2 + "/" + reproductionHouseCapacity);
         UImaxFoodWorkers.SetText("" + currentFoodWorkers + "/" + foodBuildingCapacity);
     }
 }
