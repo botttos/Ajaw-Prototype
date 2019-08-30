@@ -22,6 +22,7 @@ public class EdificationScript : MonoBehaviour
     public BUILDING_TYPE build = 0;
     [Header("UI")]
     public GameObject purchaseWindow;
+    public GameObject upgradeButtons;
     public TextMeshProUGUI UIbefore;
     public TextMeshProUGUI UIafter;
     public TextMeshProUGUI UIcost;
@@ -39,11 +40,13 @@ public class EdificationScript : MonoBehaviour
         PlayerScript.buildingArrayTarget = building;
         UpdatePurchaseUI();
         purchaseWindow.SetActive(true);
+        upgradeButtons.SetActive(false);
         Time.timeScale = 0;
     }
     public void BackToGame()
     {
         purchaseWindow.SetActive(false);
+        upgradeButtons.SetActive(true);
         Time.timeScale = 1;
     }
     public void UpgradeBuilding()
