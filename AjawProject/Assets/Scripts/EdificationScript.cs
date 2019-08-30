@@ -20,6 +20,7 @@ public class EdificationScript : MonoBehaviour
     public Building[] building;
     public int currentCapacity = 0;
     public BUILDING_TYPE build = 0;
+    public CharacterScript characterEnergy;
     [Header("UI")]
     public GameObject purchaseWindow;
     public GameObject upgradeButtons;
@@ -120,6 +121,7 @@ public class EdificationScript : MonoBehaviour
                     {
                         PlayerScript.currentDivinity -= PlayerScript.buildingArrayTarget[PlayerScript.chamanLevel + 1].cost;
                         PlayerScript.armyPower = PlayerScript.buildingArrayTarget[PlayerScript.chamanLevel + 1].capacity;
+                        characterEnergy.maxEnergy += 1.0f;
                         PlayerScript.chamanLevel++;
                         purchaseSuccess = true;
                     }
@@ -266,7 +268,7 @@ public class EdificationScript : MonoBehaviour
                 if (PlayerScript.chamanLevel < 5)
                 {
                     UIbefore.SetText("Fuerza del ejército: " + currentCapacity);
-                    UIafter.SetText("Fuerza del ejército: " + building[PlayerScript.chamanLevel + 1].capacity);
+                    UIafter.SetText("Fuerza del ejército: " + building[PlayerScript.chamanLevel + 1].capacity + " + Aumento de resistencia");
                     UIcost.SetText("Humanos:\n" + building[PlayerScript.chamanLevel + 1].cost);
                 }
                 else

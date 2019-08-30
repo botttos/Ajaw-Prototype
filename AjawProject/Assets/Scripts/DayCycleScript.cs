@@ -10,7 +10,8 @@ public class DayCycleScript : MonoBehaviour
     public float dayTime = 0.0f;
     [Header("Estadísticas")]
     public float foodConsumedPerHuman = 2.0f;
-    public float reproductionTimeCycle = 8;
+    public float reproductionTimeCycle = 10;
+    public float reproductionTimer = 0;
     [Header("Datos por día")]
     public Day[] days;
     [Header("UI")]
@@ -31,12 +32,13 @@ public class DayCycleScript : MonoBehaviour
     }
     void Start()
     {
+        reproductionTimer = reproductionTimeCycle;
         // Day cycle
         StartCoroutine(StartDayCicle());
         // Food cycle
         StartCoroutine(StartFoodCycle());
         // Reproduction cycle
-        StartCoroutine(StartReproductionCycle());
+        //StartCoroutine(StartReproductionCycle());
         // Divinity cycle
         StartCoroutine(StartPassiveDivinity());
     }
@@ -44,7 +46,7 @@ public class DayCycleScript : MonoBehaviour
     IEnumerator StartDayCicle()
     {
         yield return new WaitForSeconds(dayTime);
-        PlayerScript.currentFood -= foodConsumedPerHuman*(PlayerScript.currentFoodWorkers+PlayerScript.reproductionWorkers+PlayerScript.houseWorkers);
+        PlayerScript.currentFood -= foodConsumedPerHuman * (PlayerScript.currentFoodWorkers + PlayerScript.reproductionWorkers + PlayerScript.houseWorkers);
         PlayerScript.currentDivinity -= days[PlayerScript.currentMonth].divinityConsumption;
 
         if (Random.Range(0, 10) > PlayerScript.chanceObject) //TODO: añadir item
@@ -83,10 +85,11 @@ public class DayCycleScript : MonoBehaviour
     }
     IEnumerator StartReproductionCycle()
     {
-        yield return new WaitForSeconds(reproductionTimeCycle);
-        for (int i = 0; i < PlayerScript.reproductionWorkers; i++)
-            AddObjectToList.AddPopulation();
+        
+        /*yield return new WaitForSeconds(reproductionTimeCycle - PlayerScript.reproductionHouseLevel);
+        for (int i = 0; i < PlayerScript.reproductionWorkers; i++)*/
         StartCoroutine(StartReproductionCycle());
+        yield return null;
     }
     IEnumerator StartPassiveDivinity()
     {
@@ -104,6 +107,15 @@ public class DayCycleScript : MonoBehaviour
     }
     void Update()
     {
+        // REPRODUCTION
+        reproductionTimer -= Time.deltaTime;
+        if (reproductionTimer - PlayerScript.reproductionWorkers <= 0)
+        {
+            AddObjectToList.AddPopulation();
+            reproductionTimer = reproductionTimeCycle;
+        }
+        // Max divinity update
+        PlayerScript.maxDivinity = GetCurrentDay().maxDivinity;
         // Time timer
         currentTimeUI -= Time.deltaTime;
         if (currentTimeUI <= 0)

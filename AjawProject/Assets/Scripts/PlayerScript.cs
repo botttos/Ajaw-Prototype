@@ -6,7 +6,8 @@ using TMPro;
 public class PlayerScript : MonoBehaviour
 {
     // Current player stats
-    public static float currentDivinity = 0.0f;
+    public static float currentDivinity = 150.0f;
+    public static float maxDivinity = 150.0f;
     public static float currentFood = 0.0f;
     public static int currentMonth = 0;
     public static int currentWeek = 0;
