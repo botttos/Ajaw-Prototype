@@ -4479,6 +4479,7 @@ GameObject:
   - component: {fileID: 914452944}
   - component: {fileID: 914452946}
   - component: {fileID: 914452947}
+  - component: {fileID: 914452948}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4603,6 +4604,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2023348c8794a31489f474853bf0b532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &914452948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914452942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678136bfd3edc0e4594475676159c10a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - objectType: 0
+    name: Espina mantarraya
+    message: Aumenta un 10% la divinidad obtenida de cada sacrificio.
+    alreadyTook: 0
+  - objectType: 1
+    name: Figura de Chaac
+    message: "Aumenta la producci\xF3n de alimentos durante los d\xEDas lluviosos."
+    alreadyTook: 1
+  - objectType: 2
+    name: "Pluma de Kukulk\xE1n"
+    message: "Aumenta en 5 el n\xFAmero m\xE1ximo de habitantes."
+    alreadyTook: 0
+  - objectType: 3
+    name: "M\xE1scara de Pakal el Grande"
+    message: "Aumenta la velocidad de los procesos de creaci\xF3n de alimentos y reproducci\xF3n."
+    alreadyTook: 0
+  - objectType: 4
+    name: Figura de Jade
+    message: Restaura completamente la divinidad.
+    alreadyTook: 0
+  - objectType: 5
+    name: Pluma
+    message: Restaura parcialmente la divinidad.
+    alreadyTook: 0
+  - objectType: 6
+    name: Papel
+    message: Restaura parcialmente la divinidad.
+    alreadyTook: 0
 --- !u!1 &972087636
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,13 +24,14 @@ public class DayCycleScript : MonoBehaviour
 
     // private
     private float currentTimeUI = 20.0f;
-
+    
     [System.Serializable]
     public class Day
     {
         public float maxDivinity;
         public float divinityConsumption;
     }
+
     void Start()
     {
         reproductionTimer = reproductionTimeCycle;
