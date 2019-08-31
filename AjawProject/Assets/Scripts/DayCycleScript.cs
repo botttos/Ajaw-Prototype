@@ -24,6 +24,7 @@ public class DayCycleScript : MonoBehaviour
 
     // private
     private float currentTimeUI = 20.0f;
+    public static bool addNewItem = false;
     
     [System.Serializable]
     public class Day
@@ -51,8 +52,8 @@ public class DayCycleScript : MonoBehaviour
         PlayerScript.currentFood -= foodConsumedPerHuman * (PlayerScript.currentFoodWorkers + PlayerScript.reproductionWorkers + PlayerScript.houseWorkers);
         PlayerScript.currentDivinity -= days[PlayerScript.currentMonth].divinityConsumption;
 
-        if (Random.Range(0, 10) > PlayerScript.chanceObject) //TODO: añadir item
-            Debug.Log("ITEM POP UP");
+        if (Random.Range(0, 10) <= PlayerScript.chanceObject)
+            addNewItem = true;
 
         if (PlayerScript.currentFood <= 0)
         {

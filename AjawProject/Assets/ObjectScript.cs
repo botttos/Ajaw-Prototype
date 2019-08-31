@@ -1,11 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ObjectScript : MonoBehaviour
 {
     [Header("Lista de objetos")]
     public Object[] objects;
+    public static Object[] objectsStatic;
+    [Header("UI")]
+    public GameObject newItemMenu;
+    public TextMeshProUGUI UIname;
+    public TextMeshProUGUI UIdescription;
 
     public static bool espinaMantarraya;
     public static bool figuraChaac;
@@ -35,7 +42,27 @@ public class ObjectScript : MonoBehaviour
         public bool alreadyTook = false;
     }
 
-    public void GetNewItem()
+    public void Update()
+    {
+        if(DayCycleScript.addNewItem)
+        {
+            DayCycleScript.addNewItem = false;
+            PopUpItemMenu(GetNewItem());
+        }
+    }
+    public void PopUpItemMenu(int item)
+    {
+        Time.timeScale = 0;
+        newItemMenu.SetActive(true);
+        UIname.SetText(objects[item].name);
+        UIdescription.SetText(objects[item].message);
+    }
+    public void BackToGame()
+    {
+        newItemMenu.SetActive(false);
+        Time.timeScale = 1;
+    }
+    public int GetNewItem()
     {
         int randomItem = 0;
         do
@@ -68,5 +95,6 @@ public class ObjectScript : MonoBehaviour
                 plumaKukulkan = true;
                 break;
         }
+        return randomItem;
     }
 }
