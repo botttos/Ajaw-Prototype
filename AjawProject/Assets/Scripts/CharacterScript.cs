@@ -80,7 +80,9 @@ public class CharacterScript : MonoBehaviour
         {
             Destroy(defaultList.transform.GetChild(0).gameObject);
             PlayerScript.houseWorkers--;
-            if (PlayerScript.currentDivinity + 10 <= PlayerScript.maxDivinity)
+            if (PlayerScript.currentDivinity + 11 <= PlayerScript.maxDivinity && ObjectScript.espinaMantarraya)
+                PlayerScript.currentDivinity += 11;
+            else if (PlayerScript.currentDivinity + 10 <= PlayerScript.maxDivinity)
                 PlayerScript.currentDivinity += 10;
             else
                 PlayerScript.currentDivinity = PlayerScript.maxDivinity;

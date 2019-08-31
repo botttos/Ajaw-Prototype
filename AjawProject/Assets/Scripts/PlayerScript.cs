@@ -50,7 +50,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         currentDivinity = 150;
-        currentFood = 50;
+        currentFood = 0;
         currentWeek = 0;
         currentMonth = 0;
         foodTimeCycle = 12;

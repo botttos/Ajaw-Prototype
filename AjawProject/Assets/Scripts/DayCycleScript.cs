@@ -21,11 +21,16 @@ public class DayCycleScript : MonoBehaviour
     public GameObject UIdivinityConsumption;
     public GameObject UIborder;
     public GameObject UIgameOver;
-
+    public GameObject UIupgrades;
+    [Header("Population")]
+    public GameObject defaultList;
+    public GameObject foodList;
+    public GameObject reproductionList;
     // private
     private float currentTimeUI = 20.0f;
     public static bool addNewItem = false;
-    
+    public static bool newEvent = false;
+
     [System.Serializable]
     public class Day
     {
@@ -49,26 +54,36 @@ public class DayCycleScript : MonoBehaviour
     IEnumerator StartDayCicle()
     {
         yield return new WaitForSeconds(dayTime);
-        PlayerScript.currentFood -= foodConsumedPerHuman * (PlayerScript.currentFoodWorkers + PlayerScript.reproductionWorkers + PlayerScript.houseWorkers);
+        if (PlayerScript.currentFood - foodConsumedPerHuman * (PlayerScript.currentFoodWorkers + PlayerScript.reproductionWorkers + PlayerScript.houseWorkers) > 0)
+            PlayerScript.currentFood -= foodConsumedPerHuman * (PlayerScript.currentFoodWorkers + PlayerScript.reproductionWorkers + PlayerScript.houseWorkers);
+        else
+            PlayerScript.currentFood = 0;
+
         PlayerScript.currentDivinity -= days[PlayerScript.currentMonth].divinityConsumption;
 
         if (Random.Range(0, 10) <= PlayerScript.chanceObject)
             addNewItem = true;
 
-        if (PlayerScript.currentFood <= 0)
+        // Game Over
+        if (PlayerScript.currentDivinity <= 0)
         {
-            // kill all the people
-        }
-        else if (PlayerScript.currentDivinity <= 0)
-        {
+            UIupgrades.SetActive(false);
             Time.timeScale = 0;
             UIgameOver.SetActive(true);
         }
-
+        // Food punishment
+        if (PlayerScript.currentFood <= 0)
+        {
+            if (PlayerScript.currentDivinity - (int)(PlayerScript.currentDivinity / 2) >= 0)
+                PlayerScript.currentDivinity = (int)(PlayerScript.currentDivinity / 2);
+            else
+                PlayerScript.currentDivinity = 0;
+        }
         PlayerScript.currentWeek++;
         // Si es multiplo de 5, sumamos un mes
         if (PlayerScript.currentWeek % 5 == 0)
         {
+            PlayerScript.currentWeek = 0;
             PlayerScript.currentMonth++;
             PlayerScript.currentDivinity = days[PlayerScript.currentMonth].maxDivinity;
         }
@@ -78,10 +93,12 @@ public class DayCycleScript : MonoBehaviour
     }
     IEnumerator StartFoodCycle()
     {
-        yield return new WaitForSeconds(PlayerScript.foodTimeCycle);
-        // TODO: fix food production en relacion a la gente trabajando en cultivos
+        if (ObjectScript.mascaraPakalGrande)
+            yield return new WaitForSeconds(PlayerScript.foodTimeCycle * 0.9f);
+        else
+            yield return new WaitForSeconds(PlayerScript.foodTimeCycle);
         if ((PlayerScript.currentFood + PlayerScript.currentFoodWorkers * 2) <= PlayerScript.foodMax)
-            PlayerScript.currentFood += PlayerScript.currentFoodWorkers;
+            PlayerScript.currentFood += PlayerScript.currentFoodWorkers*2;
         else
             PlayerScript.currentFood = PlayerScript.foodMax;
         Debug.Log("MORE FOOD");
@@ -89,7 +106,7 @@ public class DayCycleScript : MonoBehaviour
     }
     IEnumerator StartReproductionCycle()
     {
-        
+
         /*yield return new WaitForSeconds(reproductionTimeCycle - PlayerScript.reproductionHouseLevel);
         for (int i = 0; i < PlayerScript.reproductionWorkers; i++)*/
         StartCoroutine(StartReproductionCycle());
@@ -113,11 +130,13 @@ public class DayCycleScript : MonoBehaviour
     {
         // REPRODUCTION
         reproductionTimer -= Time.deltaTime;
-        if (reproductionTimer - PlayerScript.reproductionWorkers <= 0)
+        if (reproductionTimer - PlayerScript.reproductionWorkers <= 0 && PlayerScript.reproductionWorkers > 0)
         {
             AddObjectToList.AddPopulation();
             reproductionTimer = reproductionTimeCycle;
         }
+        else if(reproductionTimer - PlayerScript.reproductionWorkers <= 0)
+            reproductionTimer = reproductionTimeCycle;
         // Max divinity update
         PlayerScript.maxDivinity = GetCurrentDay().maxDivinity;
         // Time timer

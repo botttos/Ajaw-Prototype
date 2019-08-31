@@ -1215,7 +1215,7 @@ RectTransform:
   - {fileID: 331858374}
   - {fileID: 792321180}
   m_Father: {fileID: 1794045257}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2422,7 +2422,7 @@ RectTransform:
   - {fileID: 323032051}
   - {fileID: 1413471031}
   m_Father: {fileID: 1794045257}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2815,7 +2815,7 @@ RectTransform:
   - {fileID: 1533533116}
   - {fileID: 1980890292}
   m_Father: {fileID: 1794045257}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5192,6 +5192,10 @@ MonoBehaviour:
   UIdivinityConsumption: {fileID: 1469543028}
   UIborder: {fileID: 2030626031}
   UIgameOver: {fileID: 453981050}
+  UIupgrades: {fileID: 269259360}
+  defaultList: {fileID: 1732505241}
+  foodList: {fileID: 236944467}
+  reproductionList: {fileID: 977625421}
 --- !u!114 &914452946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5261,6 +5265,7 @@ MonoBehaviour:
     message: Restaura parcialmente la divinidad.
     alreadyTook: 0
   newItemMenu: {fileID: 1514162046}
+  upgradeUI: {fileID: 269259360}
   UIname: {fileID: 2125040114}
   UIdescription: {fileID: 1760628225}
 --- !u!1 &930923704
@@ -7070,7 +7075,7 @@ RectTransform:
   - {fileID: 1033875840}
   - {fileID: 209748702}
   m_Father: {fileID: 1794045257}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9470,7 +9475,7 @@ RectTransform:
   - {fileID: 2006798886}
   - {fileID: 10929743}
   m_Father: {fileID: 1794045257}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11477,12 +11482,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 453981051}
+  - {fileID: 1514162047}
   - {fileID: 512334110}
   - {fileID: 269259361}
   - {fileID: 1940592327}
   - {fileID: 1222768184}
-  - {fileID: 453981051}
-  - {fileID: 1514162047}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12208,7 +12213,7 @@ RectTransform:
   - {fileID: 587067989}
   - {fileID: 486748966}
   m_Father: {fileID: 1794045257}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

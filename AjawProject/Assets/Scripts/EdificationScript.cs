@@ -66,6 +66,8 @@ public class EdificationScript : MonoBehaviour
                     {
                         PlayerScript.currentDivinity -= PlayerScript.buildingArrayTarget[PlayerScript.housesLevel + 1].cost;
                         PlayerScript.housesCapacity = PlayerScript.buildingArrayTarget[PlayerScript.housesLevel + 1].capacity;
+                        if (ObjectScript.plumaKukulkan)
+                            PlayerScript.housesCapacity += 5;
                         PlayerScript.housesLevel++;
                         purchaseSuccess = true;
                     }
@@ -201,8 +203,16 @@ public class EdificationScript : MonoBehaviour
             case BUILDING_TYPE.HOUSE:
                 if (PlayerScript.housesLevel < 5)
                 {
-                    UIbefore.SetText("Capacidad: " + currentCapacity);
-                    UIafter.SetText("Capacidad: " + building[PlayerScript.housesLevel + 1].capacity);
+                    if (ObjectScript.plumaKukulkan)
+                    {
+                        UIbefore.SetText("Capacidad: " + (currentCapacity + 5));
+                        UIafter.SetText("Capacidad: " + (building[PlayerScript.housesLevel + 1].capacity + 5));
+                    }
+                    else
+                    {
+                        UIbefore.SetText("Capacidad: " + currentCapacity);
+                        UIafter.SetText("Capacidad: " + building[PlayerScript.housesLevel + 1].capacity);
+                    }
                     UIcost.SetText("Divinity:\n" + building[PlayerScript.housesLevel + 1].cost);
                 }
                 else

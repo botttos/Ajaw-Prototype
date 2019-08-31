@@ -11,6 +11,7 @@ public class ObjectScript : MonoBehaviour
     public static Object[] objectsStatic;
     [Header("UI")]
     public GameObject newItemMenu;
+    public GameObject upgradeUI;
     public TextMeshProUGUI UIname;
     public TextMeshProUGUI UIdescription;
 
@@ -53,14 +54,16 @@ public class ObjectScript : MonoBehaviour
     public void PopUpItemMenu(int item)
     {
         Time.timeScale = 0;
+        upgradeUI.SetActive(false);
         newItemMenu.SetActive(true);
         UIname.SetText(objects[item].name);
         UIdescription.SetText(objects[item].message);
     }
     public void BackToGame()
     {
-        newItemMenu.SetActive(false);
+        upgradeUI.SetActive(true);
         Time.timeScale = 1;
+        newItemMenu.SetActive(false);
     }
     public int GetNewItem()
     {
@@ -80,18 +83,28 @@ public class ObjectScript : MonoBehaviour
                 figuraChaac = true;
                 break;
             case OBJECT_TYPE.FIGURA_JADE:
+                PlayerScript.currentDivinity = PlayerScript.maxDivinity;
                 figuraJade = true;
                 break;
             case OBJECT_TYPE.MASCARA_PAKAL_GRANDE:
                 mascaraPakalGrande = true;
                 break;
             case OBJECT_TYPE.PAPEL:
+                if (PlayerScript.currentDivinity * 1.2 <= PlayerScript.maxDivinity)
+                    PlayerScript.currentDivinity *= 1.2f;
+                else
+                    PlayerScript.currentDivinity = PlayerScript.maxDivinity;
                 papel = true;
                 break;
             case OBJECT_TYPE.PLUMA:
+                if (PlayerScript.currentDivinity * 1.4 <= PlayerScript.maxDivinity)
+                    PlayerScript.currentDivinity *= 1.4f;
+                else
+                    PlayerScript.currentDivinity = PlayerScript.maxDivinity;
                 pluma = true;
                 break;
             case OBJECT_TYPE.PLUMA_KUKULKAN:
+                PlayerScript.housesCapacity += 5;
                 plumaKukulkan = true;
                 break;
         }
