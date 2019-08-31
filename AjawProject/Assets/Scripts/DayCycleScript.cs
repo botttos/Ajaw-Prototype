@@ -20,6 +20,7 @@ public class DayCycleScript : MonoBehaviour
     public GameObject UIdivinity;
     public GameObject UIdivinityConsumption;
     public GameObject UIborder;
+    public GameObject UIgameOver;
 
     // private
     private float currentTimeUI = 20.0f;
@@ -58,7 +59,8 @@ public class DayCycleScript : MonoBehaviour
         }
         else if (PlayerScript.currentDivinity <= 0)
         {
-            // lose game
+            Time.timeScale = 0;
+            UIgameOver.SetActive(true);
         }
 
         PlayerScript.currentWeek++;

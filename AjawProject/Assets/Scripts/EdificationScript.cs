@@ -19,7 +19,7 @@ public class EdificationScript : MonoBehaviour
     [Header("Coste y accion por nivel")]
     public Building[] building;
     public int currentCapacity = 0;
-    public BUILDING_TYPE build = 0;
+    public BUILDING_TYPE buildType = 0;
     public CharacterScript characterEnergy;
     [Header("UI")]
     public GameObject purchaseWindow;
@@ -34,10 +34,14 @@ public class EdificationScript : MonoBehaviour
         public float cost;
         public int capacity;
     }
-
+    public void Start()
+    {
+        if (buildType == BUILDING_TYPE.REPRODUCTION)
+            PlayerScript.reproductionBuildingArrayTarget = building;
+    }
     public void PurchaseWindow()
     {
-        PlayerScript.buildingTarget = build;
+        PlayerScript.buildingTarget = buildType;
         PlayerScript.buildingArrayTarget = building;
         UpdatePurchaseUI();
         purchaseWindow.SetActive(true);
@@ -87,7 +91,7 @@ public class EdificationScript : MonoBehaviour
                         PlayerScript.currentDivinity -= PlayerScript.buildingArrayTarget[PlayerScript.foodBuildingLevel + 1].cost;
                         PlayerScript.foodMax = PlayerScript.buildingArrayTarget[PlayerScript.foodBuildingLevel + 1].capacity;
                         PlayerScript.foodBuildingLevel++;
-                        PlayerScript.foodBuildingCapacity = PlayerScript.buildingArrayTarget[PlayerScript.reproductionHouseCapacity].capacity;
+                        PlayerScript.foodBuildingCapacity = PlayerScript.reproductionBuildingArrayTarget[PlayerScript.foodBuildingLevel].capacity;
                         purchaseSuccess = true;
                     }
                 }
@@ -152,7 +156,7 @@ public class EdificationScript : MonoBehaviour
                 }
                 break;
         }
-        UpdateCapacity(build);
+        UpdateCapacity(buildType);
 
         if (purchaseSuccess)
             BackToGame();
@@ -192,7 +196,7 @@ public class EdificationScript : MonoBehaviour
     }
     private void UpdatePurchaseUI()
     {
-        switch (build)
+        switch (buildType)
         {
             case BUILDING_TYPE.HOUSE:
                 if (PlayerScript.housesLevel < 5)

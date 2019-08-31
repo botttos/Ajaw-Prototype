@@ -33,6 +33,7 @@ public class PlayerScript : MonoBehaviour
 
     public static EdificationScript.BUILDING_TYPE buildingTarget;
     public static EdificationScript.Building[] buildingArrayTarget;
+    public static EdificationScript.Building[] reproductionBuildingArrayTarget;
 
     // Cycles
     public static int foodTimeCycle = 0;
