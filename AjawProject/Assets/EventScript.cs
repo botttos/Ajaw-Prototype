@@ -15,6 +15,9 @@ public class EventScript : MonoBehaviour
     public TextMeshProUGUI UIoption1;
     public TextMeshProUGUI UIoption2;
 
+    public GameObject secondTextMenu;
+    public TextMeshProUGUI secondTextString;
+
     public static bool event1;
     public static bool event2;
     public static bool event3;
@@ -64,6 +67,11 @@ public class EventScript : MonoBehaviour
         [TextArea(3, 10)]
         public string option2;
         public bool alreadyTook = false;
+        public bool secondText = false;
+        [TextArea(3, 10)]
+        public string secondTextStringUP;
+        [TextArea(3, 10)]
+        public string secondTextStringDOWN;
     }
     public void Update()
     {
@@ -92,6 +100,16 @@ public class EventScript : MonoBehaviour
         upgradeUI.SetActive(true);
         Time.timeScale = 1;
         eventMenu.SetActive(false);
+        secondTextMenu.SetActive(false);
+    }
+    public void ShowSecondMenu()
+    {
+        eventMenu.SetActive(false);
+        secondTextMenu.SetActive(true);
+        if(option == OPTION.UP)
+            secondTextString.SetText(events[currentEvent].secondTextStringUP);
+        else if (option == OPTION.DOWN)
+            secondTextString.SetText(events[currentEvent].secondTextStringDOWN);
     }
     public int CreateNewEvent()
     {
@@ -290,5 +308,7 @@ public class EventScript : MonoBehaviour
                 }
                 break;
         }
+        if (events[currentEvent].secondText)
+            ShowSecondMenu();
     }
 }

@@ -86,6 +86,7 @@ public class DayCycleScript : MonoBehaviour
             PlayerScript.currentWeek = 0;
             PlayerScript.currentMonth++;
             PlayerScript.currentDivinity = days[PlayerScript.currentMonth].maxDivinity;
+            newEvent = true;
         }
         Debug.Log("WEEK END");
         StartCoroutine(StartDayCicle());
