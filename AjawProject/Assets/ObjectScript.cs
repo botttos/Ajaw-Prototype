@@ -83,24 +83,24 @@ public class ObjectScript : MonoBehaviour
                 figuraChaac = true;
                 break;
             case OBJECT_TYPE.FIGURA_JADE:
-                PlayerScript.currentDivinity = PlayerScript.maxDivinity;
+                PlayerScript.currentDivinity = (PlayerScript.maxDivinity + EventScript.event2);
                 figuraJade = true;
                 break;
             case OBJECT_TYPE.MASCARA_PAKAL_GRANDE:
                 mascaraPakalGrande = true;
                 break;
             case OBJECT_TYPE.PAPEL:
-                if (PlayerScript.currentDivinity * 1.2 <= PlayerScript.maxDivinity)
+                if (PlayerScript.currentDivinity * 1.2 <= (PlayerScript.maxDivinity + EventScript.event2))
                     PlayerScript.currentDivinity *= 1.2f;
                 else
-                    PlayerScript.currentDivinity = PlayerScript.maxDivinity;
+                    PlayerScript.currentDivinity = (PlayerScript.maxDivinity + EventScript.event2);
                 papel = true;
                 break;
             case OBJECT_TYPE.PLUMA:
-                if (PlayerScript.currentDivinity * 1.4 <= PlayerScript.maxDivinity)
+                if (PlayerScript.currentDivinity * 1.4 <= (PlayerScript.maxDivinity + EventScript.event2))
                     PlayerScript.currentDivinity *= 1.4f;
                 else
-                    PlayerScript.currentDivinity = PlayerScript.maxDivinity;
+                    PlayerScript.currentDivinity = (PlayerScript.maxDivinity + EventScript.event2);
                 pluma = true;
                 break;
             case OBJECT_TYPE.PLUMA_KUKULKAN:

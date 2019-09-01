@@ -10,7 +10,7 @@ public class EventScript : MonoBehaviour
     [Header("UI")]
     public GameObject eventMenu;
     public GameObject upgradeUI;
-    
+
     public TextMeshProUGUI UIdescription;
     public TextMeshProUGUI UIoption1;
     public TextMeshProUGUI UIoption2;
@@ -18,13 +18,24 @@ public class EventScript : MonoBehaviour
     public GameObject secondTextMenu;
     public TextMeshProUGUI secondTextString;
 
-    public static bool event1;
-    public static bool event2;
-    public static bool event3;
-    public static bool event4;
-    public static bool event5;
-    public static bool event6;
-    public static bool event7;
+    public static float event1 = 0;
+    public static float event2 = 0;
+    public static int event3 = 0;
+    public static int event4 = 0;
+    public static int event5 = 0;
+    public static int event6 = 0;
+    public static int event7 = 0;
+    public static int event8 = 0;
+    public static int event9 = 0;
+    public static int event10 = 0;
+    public static int event11 = 0;
+    public static int event12 = 0;
+    public static int event13 = 0;
+    public static int event14 = 0;
+    public static int event15 = 0;
+    public static int event16 = 0;
+    public static int event17 = 0;
+    public static int event18 = 0;
 
     private OPTION option = OPTION.NONE;
     private int currentEvent = 0;
@@ -37,7 +48,7 @@ public class EventScript : MonoBehaviour
     }
     public enum EVENT_TYPE
     {
-        EVENT1 = 1,
+        EVENT1 = 0,
         EVENT2,
         EVENT3,
         EVENT4,
@@ -82,7 +93,7 @@ public class EventScript : MonoBehaviour
             CreateNewEvent();
             PopUpEventMenu();
         }
-        if(option != OPTION.NONE)
+        if (option != OPTION.NONE)
         {
             ExecuteEvent();
             option = OPTION.NONE;
@@ -99,11 +110,11 @@ public class EventScript : MonoBehaviour
     }
     public void OptionButton(string upOrDown)
     {
-        if(upOrDown == "up")
+        if (upOrDown == "up")
         {
             option = OPTION.UP;
         }
-        else if(upOrDown == "down")
+        else if (upOrDown == "down")
         {
             option = OPTION.DOWN;
         }
@@ -119,7 +130,7 @@ public class EventScript : MonoBehaviour
     {
         eventMenu.SetActive(false);
         secondTextMenu.SetActive(true);
-        if(option == OPTION.UP)
+        if (option == OPTION.UP)
             secondTextString.SetText(events[currentEvent].secondTextStringUP);
         else if (option == OPTION.DOWN)
             secondTextString.SetText(events[currentEvent].secondTextStringDOWN);
@@ -142,22 +153,21 @@ public class EventScript : MonoBehaviour
         {
             case 0:
                 if (option == OPTION.UP)
+                { }
+                else if (option == OPTION.DOWN)
                 {
-
+                    event1 = -0.1f;
                 }
-                else if(option == OPTION.DOWN)
-                {
-
-                }
-                    break;
+                break;
             case 1:
                 if (option == OPTION.UP)
                 {
-
+                    PlayerScript.currentFood = PlayerScript.currentFood / 2;
+                    event2 = PlayerScript.maxDivinity * 0.2f;
                 }
                 else if (option == OPTION.DOWN)
                 {
-
+                    PlayerScript.armyPower++;
                 }
                 break;
             case 2:
@@ -167,47 +177,73 @@ public class EventScript : MonoBehaviour
                 }
                 else if (option == OPTION.DOWN)
                 {
-
+                    if (PlayerScript.currentDivinity >= 40)
+                        PlayerScript.currentDivinity -= 40;
+                    else
+                        PlayerScript.currentDivinity = 0;
                 }
                 break;
             case 3:
                 if (option == OPTION.UP)
                 {
+                    if (PlayerScript.currentDivinity >= 40)
+                        PlayerScript.currentDivinity -= 40;
+                    else
+                        PlayerScript.currentDivinity = 0;
 
+                    if (PlayerScript.currentFood >= 20)
+                        PlayerScript.currentFood -= 20;
+                    else
+                        PlayerScript.currentFood = 0;
                 }
                 else if (option == OPTION.DOWN)
                 {
-
+                    PlayerScript.armyPower--;
                 }
                 break;
             case 4:
                 if (option == OPTION.UP)
                 {
-
+                    if (PlayerScript.currentDivinity >= 40)
+                        PlayerScript.currentDivinity -= 40;
+                    else
+                        PlayerScript.currentDivinity = 0;
                 }
                 else if (option == OPTION.DOWN)
                 {
-
+                    if (PlayerScript.currentDivinity >= 40)
+                        PlayerScript.currentDivinity -= 40;
+                    else
+                        PlayerScript.currentDivinity = 0;
                 }
                 break;
             case 5:
                 if (option == OPTION.UP)
                 {
-
+                    if (PlayerScript.currentDivinity + 80 <= PlayerScript.maxDivinity + event1)
+                        PlayerScript.currentDivinity += 80;
+                    else
+                        PlayerScript.currentDivinity = PlayerScript.maxDivinity + event1;
                 }
                 else if (option == OPTION.DOWN)
                 {
-
+                    if (PlayerScript.currentDivinity + 20 <= PlayerScript.maxDivinity + event1)
+                        PlayerScript.currentDivinity += 20;
+                    else
+                        PlayerScript.currentDivinity = PlayerScript.maxDivinity + event1;
                 }
                 break;
             case 6:
                 if (option == OPTION.UP)
                 {
-
+                    
                 }
                 else if (option == OPTION.DOWN)
                 {
-
+                    if (PlayerScript.currentDivinity >= 40)
+                        PlayerScript.currentDivinity -= 40;
+                    else
+                        PlayerScript.currentDivinity = 0;
                 }
                 break;
             case 7:
@@ -223,11 +259,11 @@ public class EventScript : MonoBehaviour
             case 8:
                 if (option == OPTION.UP)
                 {
-
+                    event8 += 2;
                 }
                 else if (option == OPTION.DOWN)
                 {
-
+                    PlayerScript.currentDivinity = PlayerScript.maxDivinity / 2;
                 }
                 break;
             case 9:
@@ -253,17 +289,20 @@ public class EventScript : MonoBehaviour
             case 11:
                 if (option == OPTION.UP)
                 {
-
+                    PlayerScript.currentDivinity -= 20;
                 }
                 else if (option == OPTION.DOWN)
                 {
-
+                    if (PlayerScript.currentFood >= 10)
+                        PlayerScript.currentFood -= 10;
+                    else
+                        PlayerScript.currentFood = 0;
                 }
                 break;
             case 12:
                 if (option == OPTION.UP)
                 {
-
+                    PlayerScript.currentFood /= 2;
                 }
                 else if (option == OPTION.DOWN)
                 {
@@ -273,7 +312,7 @@ public class EventScript : MonoBehaviour
             case 13:
                 if (option == OPTION.UP)
                 {
-
+                    event8 += 2;
                 }
                 else if (option == OPTION.DOWN)
                 {
@@ -283,7 +322,10 @@ public class EventScript : MonoBehaviour
             case 14:
                 if (option == OPTION.UP)
                 {
-
+                    if (PlayerScript.currentFood >= 20)
+                        PlayerScript.currentFood -= 20;
+                    else
+                        PlayerScript.currentFood = 0;
                 }
                 else if (option == OPTION.DOWN)
                 {
@@ -307,7 +349,7 @@ public class EventScript : MonoBehaviour
                 }
                 else if (option == OPTION.DOWN)
                 {
-
+                    event8 += 1;
                 }
                 break;
             case 17:
@@ -317,7 +359,7 @@ public class EventScript : MonoBehaviour
                 }
                 else if (option == OPTION.DOWN)
                 {
-
+                    event8 += 1;
                 }
                 break;
         }

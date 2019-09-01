@@ -80,12 +80,12 @@ public class CharacterScript : MonoBehaviour
         {
             Destroy(defaultList.transform.GetChild(0).gameObject);
             PlayerScript.houseWorkers--;
-            if (PlayerScript.currentDivinity + 11 <= PlayerScript.maxDivinity && ObjectScript.espinaMantarraya)
+            if (PlayerScript.currentDivinity + 11 <= (PlayerScript.maxDivinity + EventScript.event2) && ObjectScript.espinaMantarraya)
                 PlayerScript.currentDivinity += 11;
-            else if (PlayerScript.currentDivinity + 10 <= PlayerScript.maxDivinity)
+            else if (PlayerScript.currentDivinity + 10 <= (PlayerScript.maxDivinity + EventScript.event2))
                 PlayerScript.currentDivinity += 10;
             else
-                PlayerScript.currentDivinity = PlayerScript.maxDivinity;
+                PlayerScript.currentDivinity = (PlayerScript.maxDivinity + EventScript.event2);
         }
     }
     public void ReturnToHousesFood()

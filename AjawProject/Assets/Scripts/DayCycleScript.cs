@@ -85,7 +85,7 @@ public class DayCycleScript : MonoBehaviour
         {
             PlayerScript.currentWeek = 0;
             PlayerScript.currentMonth++;
-            PlayerScript.currentDivinity = days[PlayerScript.currentMonth].maxDivinity;
+            PlayerScript.currentDivinity = (days[PlayerScript.currentMonth].maxDivinity + EventScript.event2);
             newEvent = true;
         }
         Debug.Log("WEEK END");
@@ -95,11 +95,11 @@ public class DayCycleScript : MonoBehaviour
     IEnumerator StartFoodCycle()
     {
         if (ObjectScript.mascaraPakalGrande)
-            yield return new WaitForSeconds(PlayerScript.foodTimeCycle * 0.9f);
+            yield return new WaitForSeconds(PlayerScript.foodTimeCycle * (0.9f + EventScript.event1));
         else
-            yield return new WaitForSeconds(PlayerScript.foodTimeCycle);
+            yield return new WaitForSeconds(PlayerScript.foodTimeCycle + EventScript.event1);
         if ((PlayerScript.currentFood + PlayerScript.currentFoodWorkers * 2) <= PlayerScript.foodMax)
-            PlayerScript.currentFood += PlayerScript.currentFoodWorkers*2;
+            PlayerScript.currentFood += PlayerScript.currentFoodWorkers * 2;
         else
             PlayerScript.currentFood = PlayerScript.foodMax;
         Debug.Log("MORE FOOD");
@@ -116,10 +116,10 @@ public class DayCycleScript : MonoBehaviour
     IEnumerator StartPassiveDivinity()
     {
         yield return new WaitForSeconds(PlayerScript.divinityTimeCycle);
-        if ((PlayerScript.currentDivinity + PlayerScript.passiveDivinity) <= GetCurrentDay().maxDivinity)
-            PlayerScript.currentDivinity += PlayerScript.passiveDivinity;
+        if ((PlayerScript.currentDivinity + PlayerScript.passiveDivinity + EventScript.event8) <= GetCurrentDay().maxDivinity + EventScript.event2)
+            PlayerScript.currentDivinity += (PlayerScript.passiveDivinity + EventScript.event8);
         else
-            PlayerScript.currentDivinity = GetCurrentDay().maxDivinity;
+            PlayerScript.currentDivinity = (GetCurrentDay().maxDivinity + EventScript.event2);
         StartCoroutine(StartPassiveDivinity());
     }
 
@@ -136,27 +136,27 @@ public class DayCycleScript : MonoBehaviour
             AddObjectToList.AddPopulation();
             reproductionTimer = reproductionTimeCycle;
         }
-        else if(reproductionTimer - PlayerScript.reproductionWorkers <= 0)
+        else if (reproductionTimer - PlayerScript.reproductionWorkers <= 0)
             reproductionTimer = reproductionTimeCycle;
         // Max divinity update
-        PlayerScript.maxDivinity = GetCurrentDay().maxDivinity;
+        PlayerScript.maxDivinity = (GetCurrentDay().maxDivinity + EventScript.event2);
         // Time timer
         currentTimeUI -= Time.deltaTime;
         if (currentTimeUI <= 0)
             currentTimeUI = 20.0f;
         UItime.SetText("" + ((int)currentTimeUI + 1));
-        UIdivinityCurrentMax.SetText("" + PlayerScript.currentDivinity + "/" + GetCurrentDay().maxDivinity);
+        UIdivinityCurrentMax.SetText("" + PlayerScript.currentDivinity + "/" + (GetCurrentDay().maxDivinity + EventScript.event2));
         // Divinity bar filler
-        float UIDivinityData = (PlayerScript.currentDivinity / GetCurrentDay().maxDivinity) - (GetCurrentDay().divinityConsumption / GetCurrentDay().maxDivinity);
+        float UIDivinityData = (PlayerScript.currentDivinity / (GetCurrentDay().maxDivinity + EventScript.event2)) - (GetCurrentDay().divinityConsumption / (GetCurrentDay().maxDivinity + EventScript.event2));
         if (UIDivinityData >= 0)
             UIdivinity.transform.localScale = new Vector3(UIDivinityData, 1.0f, 1.0f);
         else
             UIdivinity.transform.localScale = new Vector3(0.0f, 1.0f, 1.0f);
         // Empty filler
         if (PlayerScript.currentDivinity > 0)
-            UIdivinityConsumption.transform.localScale = new Vector3(PlayerScript.currentDivinity / GetCurrentDay().maxDivinity - 1, 1.0f, 1.0f);
+            UIdivinityConsumption.transform.localScale = new Vector3(PlayerScript.currentDivinity / (GetCurrentDay().maxDivinity + EventScript.event2) - 1, 1.0f, 1.0f);
         else
-            UIdivinityConsumption.transform.localScale = new Vector3(-1 + (GetCurrentDay().divinityConsumption / GetCurrentDay().maxDivinity), 1.0f, 1.0f);
+            UIdivinityConsumption.transform.localScale = new Vector3(-1 + (GetCurrentDay().divinityConsumption / (GetCurrentDay().maxDivinity + EventScript.event2)), 1.0f, 1.0f);
 
         if (PlayerScript.currentDivinity >= GetCurrentDay().divinityConsumption)
         {

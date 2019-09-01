@@ -1232,7 +1232,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &269259361
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6316,7 +6316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events:
-  - eventType: 1
+  - eventType: 0
     message: "Un esclavo ha descubierto una l\xE1mina de piedra con glifos desconocidos.
       \xBFQu\xE9 hacemos?"
     option1: "Ofrecer l\xE1mina a Chak, dios de la lluvia."
@@ -6326,8 +6326,8 @@ MonoBehaviour:
     secondTextStringUP: No ha ocurrido nada...
     secondTextStringDOWN: "Nuestros sacerdotes han descifrado la l\xE1mina y han descubierto
       una forma m\xE1s efectiva de producir alimento! La producci\xF3n de alimento
-      ha aumentado."
-  - eventType: 2
+      por segundo ha aumentado."
+  - eventType: 1
     message: "Hoy es la fiesta del Chickab\xE1n, donde establecemos conexi\xF3n con
       los dioses y honramos a Kukulc\xE1n."
     option1: Realizar ofrenda de 1/2 de nuestros alimentos.
@@ -6336,7 +6336,7 @@ MonoBehaviour:
     secondText: 1
     secondTextStringUP: "La divinidad m\xE1xima ha aumentado un 20%!"
     secondTextStringDOWN: "La fuerza del ej\xE9rcito ha aumentado!"
-  - eventType: 3
+  - eventType: 2
     message: "Un plebeyo ha encontrado un panal de abejas a las afueras de la puerta
       oeste. \xBFQu\xE9 hacemos?"
     option1: "Posicionarla en un lugar estrat\xE9gico para la guerra."
@@ -6346,7 +6346,7 @@ MonoBehaviour:
     secondTextStringUP: "Panal posicionado. Ser\xE1 de utilidad cuando vengan a atacarnos."
     secondTextStringDOWN: "Chalchiuhtlicue est\xE1 confundida por esta ofrenda. -40
       de divinidad."
-  - eventType: 4
+  - eventType: 3
     message: "Pr\xF3ximamente es el sacrificio a Tezcatlipoca. \xBFDeseamos destinar
       recursos al guerrero divino?"
     option1: Cultivar guerrero divino.
@@ -6356,7 +6356,7 @@ MonoBehaviour:
     secondTextStringUP: "Se destinar\xE1n alimentos y divinidad para formar al guerrero
       divino. Lo convertiremos en un aut\xE9ntico ixiptla."
     secondTextStringDOWN: "La fuerza del ej\xE9rcito se ha reducido."
-  - eventType: 5
+  - eventType: 4
     message: "El pueblo vecino nos ha declarado la guerra. \xBFQu\xE9 debemos hacer?"
     option1: Luchar contra ellos.
     option2: Intentar pactar un tratado de paz.
@@ -6366,7 +6366,7 @@ MonoBehaviour:
     secondTextStringDOWN: "Cuando intentamos pactar con la otra aldea nos tendieron
       una trampa y hemos perdido a 10 soldado y estall\xF3 la guerra. Para vencerlos
       debimos pedir ayuda a los dioses y se ha consumido la mitad de la divinidad."
-  - eventType: 6
+  - eventType: 5
     message: "El cham\xE1n ha encontrado a alguien merodeando la zona. \xBFQu\xE9
       hacemos con \xE9l?"
     option1: Someter a sacrificio gladiatorio.
@@ -6375,7 +6375,7 @@ MonoBehaviour:
     secondText: 0
     secondTextStringUP: 
     secondTextStringDOWN: 
-  - eventType: 7
+  - eventType: 6
     message: "Una plebeya ha dado a luz y el sacerdote ha detectado en el calendario
       ritual que no es un d\xEDa propicio. El ni\xF1o podr\xEDa traer una maldici\xF3n
       al poblado."
@@ -6385,25 +6385,28 @@ MonoBehaviour:
     secondText: 0
     secondTextStringUP: 
     secondTextStringDOWN: 
-  - eventType: 8
+  - eventType: 7
     message: "Recientemente se han informado varias muertes de mujeres por realizar
       ejercicios acrob\xE1ticos en los que las lanzan por el aire."
     option1: "Regular ejercicios acrob\xE1ticos."
     option2: "D\xE9jalos que se diviertan."
     alreadyTook: 0
-    secondText: 0
-    secondTextStringUP: 
-    secondTextStringDOWN: 
-  - eventType: 9
+    secondText: 1
+    secondTextStringUP: "La poblaci\xF3n ha bajado de forma y ahora tiene menos energ\xEDa."
+    secondTextStringDOWN: "La poblaci\xF3n se ha puesto en forma y ha aumentado su
+      energ\xEDa."
+  - eventType: 8
     message: "\xA1Maravilloso, ha nacido un jorobado! \xA1Hemos sido vendecidos por
       los dioses!"
     option1: Formar al jorobado como sacerdote.
     option2: "Sacrificar el coraz\xF3n del jorobado a los dioses."
     alreadyTook: 0
-    secondText: 0
-    secondTextStringUP: 
-    secondTextStringDOWN: 
-  - eventType: 10
+    secondText: 1
+    secondTextStringUP: Los dioses lo han visto como un cumplido! Hemos aumentado
+      la divinidad pasiva por segundo del sacerdote.
+    secondTextStringDOWN: "Los dioses se lo han tomado como una ofensa. Comienzas
+      el mes con la mitad de energ\xEDa."
+  - eventType: 9
     message: "Hemos encontrado una especie de planta que no hab\xEDamos visto nunca.
       \xBFQu\xE9 hacemos?"
     option1: Investigar planta.
@@ -6414,7 +6417,7 @@ MonoBehaviour:
       descubierto que es una aacxo\xE1tic, planta efectiva contra el Tifus. Hemos
       aumentado la resistencia de la poblaci\xF3n."
     secondTextStringDOWN: "Mmmh... sabe a c\xE9sped."
-  - eventType: 11
+  - eventType: 10
     message: Ha aparecido un mercader de tabasco en la ciudad y ofrece tabasco suficiente
       para 1 mes.
     option1: Comprar a cambio de alimentos.
@@ -6424,7 +6427,7 @@ MonoBehaviour:
     secondTextStringUP: "Aumenta la resistencia de toda la poblaci\xF3n durante 1
       mes."
     secondTextStringDOWN: "\" No volver\xE9 m\xE1s por aqu\xED >:( \""
-  - eventType: 12
+  - eventType: 11
     message: "Debido a la porosidad de la piedra se han desplomado varias caba\xF1as."
     option1: "Arreglar caba\xF1as con divinidad."
     option2: "Arreglar caba\xF1as mediante el pago de alimentos."
@@ -6432,7 +6435,7 @@ MonoBehaviour:
     secondText: 0
     secondTextStringUP: 
     secondTextStringDOWN: 
-  - eventType: 13
+  - eventType: 12
     message: Un comerciante ofrece, el que parece ser, el escudo de Pakal el Grande
       a cambio de la mitad de nuestros alimentos.
     option1: Aceptar oferta.
@@ -6441,7 +6444,7 @@ MonoBehaviour:
     secondText: 1
     secondTextStringUP: "El escudo parece falso... maldici\xF3n."
     secondTextStringDOWN: "\" No volver\xE9 por aqu\xED >:( \""
-  - eventType: 14
+  - eventType: 13
     message: "Hemos encontrado ingentes cantidades de jade. \xBFQu\xE9 hacemos con
       ellas?"
     option1: "Crear \xEDdolos de jade."
@@ -6450,7 +6453,7 @@ MonoBehaviour:
     secondText: 1
     secondTextStringUP: Ha aumentado la divinidad pasiva.
     secondTextStringDOWN: Hemos recibido divinidad de la ofrenda.
-  - eventType: 15
+  - eventType: 14
     message: "Los esclavos est\xE1n pasando hambre y demandan m\xE1s comida debido
       a recientes muertes por inanici\xF3n."
     option1: Dar los alimentos que demandan.
@@ -6460,7 +6463,7 @@ MonoBehaviour:
     secondTextStringUP: "Los esclavos est\xE1n satisfechos con el alimento recibido."
     secondTextStringDOWN: "La energ\xEDa de los trabajadores de los campos de cultivo
       ha disminu\xEDdo."
-  - eventType: 16
+  - eventType: 15
     message: "Nuestro cham\xE1n ha tenido una visi\xF3n y pr\xF3ximamente sufriremos
       un ataque de una ciudad vecina. Nos ha recomendado celebrar el juego de pelota
       o \"tlachtli\" para aumentar nuestra fuerza."
@@ -6471,7 +6474,7 @@ MonoBehaviour:
     secondTextStringUP: Se ha celebrado el tlachtli y se han sacrificado a los ganadores
       del juego.
     secondTextStringDOWN: La fuerza ha disminuido.
-  - eventType: 17
+  - eventType: 16
     message: "Un plebeyo ha encontrado un nido de serpientes venenosas al este de
       la ciudad. \xBFQu\xE9 deber\xEDamos hacer con ellas?"
     option1: "Usar como arma biol\xF3gica en caso de guerra."
@@ -6480,7 +6483,7 @@ MonoBehaviour:
     secondText: 1
     secondTextStringUP: "Recibir\xE1s ayuda extra durante la guerra."
     secondTextStringDOWN: Aumenta la divinidad pasiva.
-  - eventType: 18
+  - eventType: 17
     message: "Un esclavo ha descubierto una l\xE1mina de piedra con glifos desconocidos.
       \xBFQu\xE9 hacemos?"
     option1: "Ofrecer l\xE1mina a Chak, dios de la lluvia."
@@ -8820,11 +8823,11 @@ MonoBehaviour:
     lineCount: 4
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -9701,11 +9704,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -9995,11 +9998,11 @@ MonoBehaviour:
     lineCount: 3
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -11153,11 +11156,11 @@ MonoBehaviour:
     lineCount: 4
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -12640,11 +12643,11 @@ MonoBehaviour:
     lineCount: 3
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -14586,7 +14589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2018872925
 RectTransform:
   m_ObjectHideFlags: 0
