@@ -1414,15 +1414,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 914452948}
-        m_MethodName: BackToGame
-        m_Mode: 1
+      - m_Target: {fileID: 991930624}
+        m_MethodName: OptionButton
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: down
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2357,7 +2357,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 914452948}
+      - m_Target: {fileID: 991930624}
         m_MethodName: BackToGame
         m_Mode: 1
         m_Arguments:
@@ -3233,7 +3233,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 914452948}
+      - m_Target: {fileID: 991930624}
         m_MethodName: BackToGame
         m_Mode: 1
         m_Arguments:
@@ -3444,7 +3444,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 914452948}
+      - m_Target: {fileID: 991930624}
         m_MethodName: BackToGame
         m_Mode: 1
         m_Arguments:
@@ -6451,8 +6451,8 @@ MonoBehaviour:
     secondTextStringUP: Ha aumentado la divinidad pasiva.
     secondTextStringDOWN: Hemos recibido divinidad de la ofrenda.
   - eventType: 15
-    message: "Los esclavos se han revelado y exigen m\xE1s alimentos. \xBFQu\xE9 debemos
-      hacer?"
+    message: "Los esclavos est\xE1n pasando hambre y demandan m\xE1s comida debido
+      a recientes muertes por inanici\xF3n."
     option1: Dar los alimentos que demandan.
     option2: Ignorar a los esclavos.
     alreadyTook: 0
@@ -6472,21 +6472,24 @@ MonoBehaviour:
       del juego.
     secondTextStringDOWN: La fuerza ha disminuido.
   - eventType: 17
-    message: 
-    option1: 
-    option2: 
+    message: "Un plebeyo ha encontrado un nido de serpientes venenosas al este de
+      la ciudad. \xBFQu\xE9 deber\xEDamos hacer con ellas?"
+    option1: "Usar como arma biol\xF3gica en caso de guerra."
+    option2: Extraer pieles y crear vestimentas.
     alreadyTook: 0
-    secondText: 0
-    secondTextStringUP: 
-    secondTextStringDOWN: 
+    secondText: 1
+    secondTextStringUP: "Recibir\xE1s ayuda extra durante la guerra."
+    secondTextStringDOWN: Aumenta la divinidad pasiva.
   - eventType: 18
-    message: 
-    option1: 
-    option2: 
+    message: "Un esclavo ha descubierto una l\xE1mina de piedra con glifos desconocidos.
+      \xBFQu\xE9 hacemos?"
+    option1: "Ofrecer l\xE1mina a Chak, dios de la lluvia."
+    option2: "Investigar l\xE1mina."
     alreadyTook: 0
-    secondText: 0
-    secondTextStringUP: 
-    secondTextStringDOWN: 
+    secondText: 1
+    secondTextStringUP: No ha ocurrido nada...
+    secondTextStringDOWN: "Hemos descubierto que los dioses prefieren sangre proveniente
+      de la lengua o los genitales. La producci\xF3n pasiva de divinidad ha aumentado."
   eventMenu: {fileID: 1297165502}
   upgradeUI: {fileID: 269259360}
   UIdescription: {fileID: 1477747985}
@@ -7475,15 +7478,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 914452948}
-        m_MethodName: BackToGame
-        m_Mode: 1
+      - m_Target: {fileID: 991930624}
+        m_MethodName: OptionButton
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: up
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -8711,7 +8714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -122, y: 110}
+  m_AnchoredPosition: {x: -89, y: 110}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1307677119
@@ -8775,7 +8778,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_textAlignment: 258
+  m_textAlignment: 257
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -8806,7 +8809,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -39.721714, y: 0, z: -247.3451, w: -193.1366}
+  m_margin: {x: -39.721714, y: 0, z: -185.8983, w: -193.1366}
   m_textInfo:
     textComponent: {fileID: 0}
     characterCount: 7
@@ -8817,11 +8820,11 @@ MonoBehaviour:
     lineCount: 4
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -9698,11 +9701,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -9886,7 +9889,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -47, y: -125}
+  m_AnchoredPosition: {x: -47, y: -144}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1386273819
@@ -9950,7 +9953,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_textAlignment: 257
+  m_textAlignment: 513
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -9992,11 +9995,11 @@ MonoBehaviour:
     lineCount: 3
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -10096,7 +10099,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 914452948}
+      - m_Target: {fileID: 991930624}
         m_MethodName: BackToGame
         m_Mode: 1
         m_Arguments:
@@ -10960,7 +10963,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 914452948}
+      - m_Target: {fileID: 991930624}
         m_MethodName: BackToGame
         m_Mode: 1
         m_Arguments:
@@ -11150,11 +11153,11 @@ MonoBehaviour:
     lineCount: 4
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -12533,7 +12536,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -47, y: -3}
+  m_AnchoredPosition: {x: -47, y: -22}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1727054104
@@ -12595,7 +12598,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_textAlignment: 257
+  m_textAlignment: 513
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -12637,11 +12640,11 @@ MonoBehaviour:
     lineCount: 3
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -14583,7 +14586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2018872925
 RectTransform:
   m_ObjectHideFlags: 0

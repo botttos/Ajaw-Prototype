@@ -78,7 +78,9 @@ public class EventScript : MonoBehaviour
         if (DayCycleScript.newEvent)
         {
             DayCycleScript.newEvent = false;
-            PopUpEventMenu(CreateNewEvent());
+            // Get event id
+            CreateNewEvent();
+            PopUpEventMenu();
         }
         if(option != OPTION.NONE)
         {
@@ -86,14 +88,25 @@ public class EventScript : MonoBehaviour
             option = OPTION.NONE;
         }
     }
-    public void PopUpEventMenu(int item)
+    public void PopUpEventMenu()
     {
         Time.timeScale = 0;
         upgradeUI.SetActive(false);
         eventMenu.SetActive(true);
-        UIdescription.SetText(events[item].message);
-        UIoption1.SetText(events[item].option1);
-        UIoption2.SetText(events[item].option2);
+        UIdescription.SetText(events[currentEvent].message);
+        UIoption1.SetText(events[currentEvent].option1);
+        UIoption2.SetText(events[currentEvent].option2);
+    }
+    public void OptionButton(string upOrDown)
+    {
+        if(upOrDown == "up")
+        {
+            option = OPTION.UP;
+        }
+        else if(upOrDown == "down")
+        {
+            option = OPTION.DOWN;
+        }
     }
     public void BackToGame()
     {
@@ -111,7 +124,7 @@ public class EventScript : MonoBehaviour
         else if (option == OPTION.DOWN)
             secondTextString.SetText(events[currentEvent].secondTextStringDOWN);
     }
-    public int CreateNewEvent()
+    public void CreateNewEvent()
     {
         int randomEvent = 0;
         do
@@ -119,9 +132,9 @@ public class EventScript : MonoBehaviour
             randomEvent = Random.Range(0, events.Length);
         }
         while (events[randomEvent].alreadyTook);
+        // Don't show this event again
+        events[randomEvent].alreadyTook = true;
         currentEvent = randomEvent;
-
-        return randomEvent;
     }
     public void ExecuteEvent()
     {
@@ -310,5 +323,7 @@ public class EventScript : MonoBehaviour
         }
         if (events[currentEvent].secondText)
             ShowSecondMenu();
+        else
+            BackToGame();
     }
 }
