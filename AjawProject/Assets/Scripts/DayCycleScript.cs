@@ -11,7 +11,8 @@ public class DayCycleScript : MonoBehaviour
     [Header("Estadísticas")]
     public float foodConsumedPerHuman = 2.0f;
     public float reproductionTimeCycle = 10;
-    public float reproductionTimer = 0;
+    public float DEBUGworkers = 0;
+    private float reproductionTimer = 0;
     [Header("Datos por día")]
     public Day[] days;
     [Header("UI")]
@@ -131,6 +132,7 @@ public class DayCycleScript : MonoBehaviour
     {
         // REPRODUCTION
         reproductionTimer -= Time.deltaTime;
+        DEBUGworkers = PlayerScript.reproductionWorkers;
         if (reproductionTimer - PlayerScript.reproductionWorkers <= 0 && PlayerScript.reproductionWorkers > 0)
         {
             AddObjectToList.AddPopulation();
