@@ -61,9 +61,6 @@ public class DayCycleScript : MonoBehaviour
 
         PlayerScript.currentDivinity -= days[PlayerScript.currentMonth].divinityConsumption;
 
-        if (Random.Range(0, 10) <= PlayerScript.chanceObject)
-            addNewItem = true;
-
         // Game Over
         if (PlayerScript.currentDivinity <= 0)
         {
@@ -79,7 +76,10 @@ public class DayCycleScript : MonoBehaviour
             else
                 PlayerScript.currentDivinity = 0;
         }
+        // Add new item
         PlayerScript.currentWeek++;
+        if (Random.Range(0, 10) <= PlayerScript.chanceObject && PlayerScript.currentWeek % 5 != 0)
+            addNewItem = true;
         // Si es multiplo de 5, sumamos un mes
         if (PlayerScript.currentWeek % 5 == 0)
         {
