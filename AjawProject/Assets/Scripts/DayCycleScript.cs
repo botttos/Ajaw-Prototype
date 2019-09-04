@@ -155,7 +155,7 @@ public class DayCycleScript : MonoBehaviour
         if (currentTimeUI <= 0)
             currentTimeUI = 20.0f;
         UItime.SetText("" + ((int)currentTimeUI + 1));
-        UIdivinityCurrentMax.SetText("" + PlayerScript.currentDivinity + "/" + (GetCurrentDay().maxDivinity + EventScript.event2));
+        UIdivinityCurrentMax.SetText("" + (int)PlayerScript.currentDivinity + "/" + (GetCurrentDay().maxDivinity + EventScript.event2));
         // Divinity bar filler
         float UIDivinityData = (PlayerScript.currentDivinity / (GetCurrentDay().maxDivinity + EventScript.event2)) - (GetCurrentDay().divinityConsumption / (GetCurrentDay().maxDivinity + EventScript.event2));
         if (UIDivinityData >= 0)
