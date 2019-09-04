@@ -10,6 +10,8 @@ public class EventScript : MonoBehaviour
     [Header("UI")]
     public GameObject eventMenu;
     public GameObject upgradeUI;
+    [Header("Audio")]
+    public AudioSource eventFX;
 
     public TextMeshProUGUI UIdescription;
     public TextMeshProUGUI UIoption1;
@@ -90,6 +92,7 @@ public class EventScript : MonoBehaviour
         {
             DayCycleScript.newEvent = false;
             // Get event id
+            eventFX.Play();
             CreateNewEvent();
             PopUpEventMenu();
         }

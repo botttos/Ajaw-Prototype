@@ -27,6 +27,8 @@ public class DayCycleScript : MonoBehaviour
     public GameObject defaultList;
     public GameObject foodList;
     public GameObject reproductionList;
+    [Header("Audio")]
+    public AudioSource eventFX;
     // private
     private float currentTimeUI = 20.0f;
     public static bool addNewItem = false;
