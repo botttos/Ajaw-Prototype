@@ -23,11 +23,13 @@ public class CharacterScript : MonoBehaviour
     public GameObject defaultList;
     public GameObject foodList;
     public GameObject reproductionList;
+    public GameObject soundManager;
 
     public void SendTo(string workIn)
     {
         if (defaultList.transform.childCount > 0)
         {
+            soundManager.GetComponent<SoundManager>().PlayAdditionFX();
             int moreEnergy = 0;
             for (int j = 0; j < defaultList.transform.childCount; j++)
             {
@@ -78,6 +80,7 @@ public class CharacterScript : MonoBehaviour
     {
         if (defaultList.transform.childCount > 0)
         {
+            soundManager.GetComponent<SoundManager>().PlaySacrificeFX();
             Destroy(defaultList.transform.GetChild(0).gameObject);
             PlayerScript.houseWorkers--;
             if (PlayerScript.currentDivinity + 15 <= (PlayerScript.maxDivinity + EventScript.event2) && ObjectScript.espinaMantarraya)
@@ -92,6 +95,7 @@ public class CharacterScript : MonoBehaviour
     {
         if (foodList.transform.childCount > 0)
         {
+            soundManager.GetComponent<SoundManager>().PlayExtractionFX();
             int lessEnergy = 0;
             foodList.transform.GetChild(lessEnergy).GetComponent<CharacterScript>().working = false;
             foodList.transform.GetChild(lessEnergy).transform.parent = defaultList.transform;
@@ -103,6 +107,7 @@ public class CharacterScript : MonoBehaviour
     {
         if (reproductionList.transform.childCount > 0)
         {
+            soundManager.GetComponent<SoundManager>().PlayExtractionFX();
             int lessEnergy = 0;
 
             // First human
@@ -134,6 +139,7 @@ public class CharacterScript : MonoBehaviour
             UIdivinity.transform.localScale = new Vector3(currentEnergy / maxEnergy, 1.0f, 1.0f);
         else
         {
+            soundManager.GetComponent<SoundManager>().PlayExaustedFX();
             if (gameObject.GetComponent<CharacterScript>().type == HUMAN_TYPE.FOOD)
                 PlayerScript.currentFoodWorkers--;
             else if (gameObject.GetComponent<CharacterScript>().type == HUMAN_TYPE.REPRODUCT)

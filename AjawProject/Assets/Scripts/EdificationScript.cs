@@ -27,6 +27,8 @@ public class EdificationScript : MonoBehaviour
     public TextMeshProUGUI UIbefore;
     public TextMeshProUGUI UIafter;
     public TextMeshProUGUI UIcost;
+    [Header("Sound")]
+    public GameObject soundManager;
 
     [System.Serializable]
     public class Building
@@ -161,8 +163,10 @@ public class EdificationScript : MonoBehaviour
         UpdateCapacity(buildType);
 
         if (purchaseSuccess)
+        {
+            soundManager.GetComponent<SoundManager>().PlayUpgradeFX();
             BackToGame();
-
+        }
         return;
     }
     private void UpdateCapacity(BUILDING_TYPE build)

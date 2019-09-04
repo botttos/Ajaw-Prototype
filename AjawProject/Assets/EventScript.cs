@@ -10,15 +10,15 @@ public class EventScript : MonoBehaviour
     [Header("UI")]
     public GameObject eventMenu;
     public GameObject upgradeUI;
-    [Header("Audio")]
-    public AudioSource eventFX;
-
+  
     public TextMeshProUGUI UIdescription;
     public TextMeshProUGUI UIoption1;
     public TextMeshProUGUI UIoption2;
 
     public GameObject secondTextMenu;
     public TextMeshProUGUI secondTextString;
+    [Header("Audio")]
+    public GameObject audioManager;
 
     public static float event1 = 0;
     public static float event2 = 0;
@@ -91,8 +91,7 @@ public class EventScript : MonoBehaviour
         if (DayCycleScript.newEvent)
         {
             DayCycleScript.newEvent = false;
-            // Get event id
-            eventFX.Play();
+            audioManager.GetComponent<SoundManager>().PlayEventFX();
             CreateNewEvent();
             PopUpEventMenu();
         }
