@@ -11,6 +11,8 @@ public class SoundManager : MonoBehaviour
     public AudioSource eventFX;
     public AudioSource extractionFX;
     public AudioSource additionFX;
+    public AudioSource gameOverFX;
+    public AudioSource newItem;
 
     public void PlayUpgradeFX()
     {
@@ -39,5 +41,17 @@ public class SoundManager : MonoBehaviour
     public void PlayExtractionFX()
     {
         extractionFX.Play();
+    }
+    public void PlayGameOverFX()
+    {
+        gameOverFX.Play();
+    }
+    public void PlayNewItemFX()
+    {
+        newItem.Play();
+    }
+    public void SetGlobalVolume(float volume)
+    {
+        AudioListener.volume = volume;
     }
 }

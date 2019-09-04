@@ -27,7 +27,9 @@ public class DayCycleScript : MonoBehaviour
     public GameObject defaultList;
     public GameObject foodList;
     public GameObject reproductionList;
-    
+    [Header("Sound")]
+    public GameObject soundManager;
+
     // private
     private float currentTimeUI = 20.0f;
     public static bool addNewItem = false;
@@ -66,6 +68,7 @@ public class DayCycleScript : MonoBehaviour
         // Game Over
         if (PlayerScript.currentDivinity <= 0)
         {
+            soundManager.GetComponent<SoundManager>().PlayGameOverFX();
             UIupgrades.SetActive(false);
             Time.timeScale = 0;
             UIgameOver.SetActive(true);
@@ -81,7 +84,11 @@ public class DayCycleScript : MonoBehaviour
         // Add new item
         PlayerScript.currentWeek++;
         if (Random.Range(0, 10) <= PlayerScript.chanceObject && PlayerScript.currentWeek % 5 != 0)
+        {
+            soundManager.GetComponent<SoundManager>().PlayNewItemFX();
             addNewItem = true;
+        }
+            
         // Si es multiplo de 5, sumamos un mes
         if (PlayerScript.currentWeek % 5 == 0)
         {
