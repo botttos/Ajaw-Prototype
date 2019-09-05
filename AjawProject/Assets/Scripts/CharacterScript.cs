@@ -29,7 +29,6 @@ public class CharacterScript : MonoBehaviour
     {
         if (defaultList.transform.childCount > 0)
         {
-            soundManager.GetComponent<SoundManager>().PlayAdditionFX();
             int moreEnergy = 0;
             for (int j = 0; j < defaultList.transform.childCount; j++)
             {
@@ -38,6 +37,7 @@ public class CharacterScript : MonoBehaviour
             }
             if (workIn == "food" && PlayerScript.currentFoodWorkers < PlayerScript.foodBuildingCapacity)
             {
+                soundManager.GetComponent<SoundManager>().PlayAdditionFX();
                 defaultList.transform.GetChild(moreEnergy).GetComponent<CharacterScript>().type = HUMAN_TYPE.FOOD;
                 defaultList.transform.GetChild(moreEnergy).GetComponent<CharacterScript>().working = true;
                 //defaultList.transform.GetChild(moreEnergy).transform.Find("barra energia/fill").GetComponent<Image>().color = Color.blue;
@@ -70,6 +70,7 @@ public class CharacterScript : MonoBehaviour
                     defaultList.transform.GetChild(moreEnergy - 1).transform.parent = reproductionList.transform;
                 else
                     defaultList.transform.GetChild(moreEnergy).transform.parent = reproductionList.transform;
+                soundManager.GetComponent<SoundManager>().PlayAdditionFX();
                 PlayerScript.reproductionWorkers++;
                 PlayerScript.houseWorkers -= 2;
             }
