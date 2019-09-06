@@ -213,10 +213,7 @@ public class EventScript : MonoBehaviour
                 }
                 else if (option == OPTION.DOWN)
                 {
-                    if (PlayerScript.currentDivinity >= 40)
-                        PlayerScript.currentDivinity -= 40;
-                    else
-                        PlayerScript.currentDivinity = 0;
+                    PlayerScript.currentDivinity = PlayerScript.maxDivinity/2;
                 }
                 break;
             case 5:

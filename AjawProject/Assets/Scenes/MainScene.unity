@@ -1276,7 +1276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0000015414942}
+  m_AnchoredPosition: {x: 0, y: -0.000019621431}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &236944469
@@ -1464,7 +1464,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275968607}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -530.34, y: -281.77, z: 8.8318405}
+  m_LocalPosition: {x: -530.34, y: -281.739, z: 8.8318405}
   m_LocalScale: {x: 0.10190613, y: 0.10190613, z: 0.10190613}
   m_Children: []
   m_Father: {fileID: 2137046878}
@@ -4098,7 +4098,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550618202}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -528.21, y: -282.38, z: 8.8318405}
+  m_LocalPosition: {x: -528.21, y: -282.424, z: 8.8318405}
   m_LocalScale: {x: 0.1341252, y: 0.1341252, z: 0.1341252}
   m_Children: []
   m_Father: {fileID: 2137046878}
@@ -5553,7 +5553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782617217}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -533.64, y: -282.43, z: 8.8318405}
+  m_LocalPosition: {x: -533.64, y: -282.446, z: 8.8318405}
   m_LocalScale: {x: 0.12634236, y: 0.12634236, z: 0.12634236}
   m_Children: []
   m_Father: {fileID: 2137046878}
@@ -7145,7 +7145,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0000015414942}
+  m_AnchoredPosition: {x: 0, y: -0.000019621431}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &977625423
@@ -7414,10 +7414,10 @@ MonoBehaviour:
     option2: Intentar pactar un tratado de paz.
     alreadyTook: 0
     secondText: 1
-    secondTextStringUP: Hemos perdido 5 guerreros pero hemos ganado la batalla.
-    secondTextStringDOWN: "Cuando intentamos pactar con la otra aldea nos tendieron
-      una trampa y hemos perdido a 10 soldado y estall\xF3 la guerra. Para vencerlos
-      debimos pedir ayuda a los dioses y se ha consumido la mitad de la divinidad."
+    secondTextStringUP: Hemos perdido divinidad pero hemos ganado la batalla.
+    secondTextStringDOWN: Cuando intentamos pactar con la otra aldea nos tendieron
+      una trampa y hemos perdido a 10 soldados. Para vencerlos hemos pedido ayuda
+      a los dioses y se ha consumido la mitad de la divinidad.
   - eventType: 5
     message: "El cham\xE1n ha encontrado a alguien merodeando la zona. \xBFQu\xE9
       hacemos con \xE9l?"
@@ -7439,7 +7439,7 @@ MonoBehaviour:
     secondTextStringDOWN: 
   - eventType: 7
     message: "Recientemente se han informado varias muertes de mujeres por realizar
-      ejercicios acrob\xE1ticos en los que las lanzan por el aire."
+      ejercicios acrob\xE1ticos en los que los hombres las lanzan por el aire."
     option1: "Regular ejercicios acrob\xE1ticos."
     option2: "D\xE9jalos que se diviertan."
     alreadyTook: 0
@@ -7518,7 +7518,7 @@ MonoBehaviour:
   - eventType: 15
     message: "Nuestro cham\xE1n ha tenido una visi\xF3n y pr\xF3ximamente sufriremos
       un ataque de una ciudad vecina. Nos ha recomendado celebrar el juego de pelota
-      o \"tlachtli\" para aumentar nuestra fuerza."
+      \"tlachtli\" para aumentar nuestra fuerza."
     option1: Realizar tlachtli.
     option2: Rechazar propuesta de tlachtli.
     alreadyTook: 0
@@ -8521,8 +8521,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 287596832}
   m_HandleRect: {fileID: 287596831}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.9999998
+  m_Value: 1
+  m_Size: 0.99999976
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8644,8 +8644,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1550060322}
   m_HandleRect: {fileID: 1550060321}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.9999998
+  m_Value: 1
+  m_Size: 0.99999976
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11415,8 +11415,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 580673121}
   m_HandleRect: {fileID: 580673120}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.9999998
+  m_Value: 1
+  m_Size: 0.99999976
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15279,7 +15279,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0000015414942}
+  m_AnchoredPosition: {x: 0, y: -0.000019621431}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1732505243
