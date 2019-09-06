@@ -143,7 +143,8 @@ public class DayCycleScript : MonoBehaviour
         DEBUGworkers = PlayerScript.reproductionWorkers;
         if (reproductionTimer - PlayerScript.reproductionWorkers <= 0 && PlayerScript.reproductionWorkers > 0)
         {
-            AddObjectToList.AddPopulation();
+            if(PlayerScript.currentFoodWorkers + (PlayerScript.reproductionWorkers*2) + PlayerScript.houseWorkers < PlayerScript.housesCapacity)
+                AddObjectToList.AddPopulation();
             reproductionTimer = reproductionTimeCycle;
         }
         else if (reproductionTimer - PlayerScript.reproductionWorkers <= 0)
