@@ -62,14 +62,20 @@ public class CharacterScript : MonoBehaviour
                 }
                 defaultList.transform.GetChild(moreEnergy).GetComponent<CharacterScript>().type = HUMAN_TYPE.REPRODUCT;
                 defaultList.transform.GetChild(moreEnergy).GetComponent<CharacterScript>().working = true;
-                defaultList.transform.GetChild(moreEnergy2).GetComponent<CharacterScript>().type = HUMAN_TYPE.REPRODUCT;
-                defaultList.transform.GetChild(moreEnergy2).GetComponent<CharacterScript>().working = true;
-                //defaultList.transform.GetChild(moreEnergy).transform.Find("barra energia/fill").GetComponent<Image>().color = Color.yellow;
                 defaultList.transform.GetChild(moreEnergy).transform.parent = reproductionList.transform;
                 if (moreEnergy > moreEnergy2)
+                {
+                    defaultList.transform.GetChild(moreEnergy - 1).GetComponent<CharacterScript>().type = HUMAN_TYPE.REPRODUCT;
+                    defaultList.transform.GetChild(moreEnergy - 1).GetComponent<CharacterScript>().working = true;
                     defaultList.transform.GetChild(moreEnergy - 1).transform.parent = reproductionList.transform;
+                }
                 else
+                {
+                    defaultList.transform.GetChild(moreEnergy).GetComponent<CharacterScript>().type = HUMAN_TYPE.REPRODUCT;
+                    defaultList.transform.GetChild(moreEnergy).GetComponent<CharacterScript>().working = true;
                     defaultList.transform.GetChild(moreEnergy).transform.parent = reproductionList.transform;
+                }
+                    
                 soundManager.GetComponent<SoundManager>().PlayAdditionFX();
                 PlayerScript.reproductionWorkers++;
                 PlayerScript.houseWorkers -= 2;
