@@ -217,7 +217,7 @@ public class EdificationScript : MonoBehaviour
                         UIbefore.SetText("Capacidad: " + currentCapacity);
                         UIafter.SetText("Capacidad: " + building[PlayerScript.housesLevel + 1].capacity);
                     }
-                    UIcost.SetText("Divinity:\n" + building[PlayerScript.housesLevel + 1].cost);
+                    UIcost.SetText("Divinidad:\n" + building[PlayerScript.housesLevel + 1].cost);
                 }
                 else
                 {
@@ -231,7 +231,7 @@ public class EdificationScript : MonoBehaviour
                 {
                     UIbefore.SetText("Capacidad: " + currentCapacity);
                     UIafter.SetText("Capacidad: " + building[PlayerScript.reproductionHouseLevel + 1].capacity);
-                    UIcost.SetText("Divinity:\n" + building[PlayerScript.reproductionHouseLevel + 1].cost);
+                    UIcost.SetText("Divinidad:\n" + building[PlayerScript.reproductionHouseLevel + 1].cost);
                 }
                 else
                 {
@@ -245,7 +245,7 @@ public class EdificationScript : MonoBehaviour
                 {
                     UIbefore.SetText("Comida max: " + currentCapacity);
                     UIafter.SetText("Comida max: " + building[PlayerScript.foodBuildingLevel + 1].capacity + " + Aumento de capacidad");
-                    UIcost.SetText("Divinity:\n" + building[PlayerScript.foodBuildingLevel + 1].cost);
+                    UIcost.SetText("Divinidad:\n" + building[PlayerScript.foodBuildingLevel + 1].cost);
                 }
                 else
                 {
@@ -259,7 +259,7 @@ public class EdificationScript : MonoBehaviour
                 {
                     UIbefore.SetText("Resistencia: " + currentCapacity);
                     UIafter.SetText("Resistencia: " + building[PlayerScript.leftDoorLevel + 1].capacity);
-                    UIcost.SetText("Divinity:\n" + building[PlayerScript.leftDoorLevel + 1].cost);
+                    UIcost.SetText("Divinidad:\n" + building[PlayerScript.leftDoorLevel + 1].cost);
                 }
                 else
                 {
@@ -273,7 +273,7 @@ public class EdificationScript : MonoBehaviour
                 {
                     UIbefore.SetText("Resistencia: " + currentCapacity);
                     UIafter.SetText("Resistencia: " + building[PlayerScript.rightDoorLevel + 1].capacity);
-                    UIcost.SetText("Divinity:\n" + building[PlayerScript.rightDoorLevel + 1].cost);
+                    UIcost.SetText("Divinidad:\n" + building[PlayerScript.rightDoorLevel + 1].cost);
                 }
                 else
                 {
@@ -301,7 +301,7 @@ public class EdificationScript : MonoBehaviour
                 {
                     UIbefore.SetText("Divinidad pasiva: " + currentCapacity);
                     UIafter.SetText("Divinidad pasiva: " + building[PlayerScript.sacerdoteLevel + 1].capacity);
-                    UIcost.SetText("Divinity:\n" + building[PlayerScript.sacerdoteLevel + 1].cost);
+                    UIcost.SetText("Divinidad:\n" + building[PlayerScript.sacerdoteLevel + 1].cost);
                 }
                 else
                 {

@@ -49,8 +49,6 @@ public class DayCycleScript : MonoBehaviour
         StartCoroutine(StartDayCicle());
         // Food cycle
         StartCoroutine(StartFoodCycle());
-        // Reproduction cycle
-        //StartCoroutine(StartReproductionCycle());
         // Divinity cycle
         StartCoroutine(StartPassiveDivinity());
     }
@@ -97,6 +95,14 @@ public class DayCycleScript : MonoBehaviour
             PlayerScript.currentDivinity = (days[PlayerScript.currentMonth].maxDivinity + EventScript.event2);
             newEvent = true;
         }
+        if(PlayerScript.currentMonth >= 18)
+        {
+            Debug.Log("WIN GAME");
+            Application.OpenURL("https://docs.google.com/forms/d/e/1FAIpQLScnRJwWchi0Bt-ZUjZQMZBI2i9jzXK8W63REaOmZMunLJhsJg/viewform?usp=sf_link");
+            Application.OpenURL("http://sainpublications.com/wp-content/uploads/2017/01/victory-004.jpg");
+            Application.Quit();
+        }
+        
         Debug.Log("WEEK END");
         StartCoroutine(StartDayCicle());
         yield return null;
@@ -107,8 +113,8 @@ public class DayCycleScript : MonoBehaviour
             yield return new WaitForSeconds(PlayerScript.foodTimeCycle * (0.9f + EventScript.event1));
         else
             yield return new WaitForSeconds(PlayerScript.foodTimeCycle + EventScript.event1);
-        if ((PlayerScript.currentFood + PlayerScript.currentFoodWorkers * 2) <= PlayerScript.foodMax)
-            PlayerScript.currentFood += PlayerScript.currentFoodWorkers * 2;
+        if ((PlayerScript.currentFood + PlayerScript.currentFoodWorkers * 2.5f) <= PlayerScript.foodMax)
+            PlayerScript.currentFood += PlayerScript.currentFoodWorkers * 2.5f;
         else
             PlayerScript.currentFood = PlayerScript.foodMax;
         Debug.Log("MORE FOOD");
@@ -116,9 +122,6 @@ public class DayCycleScript : MonoBehaviour
     }
     IEnumerator StartReproductionCycle()
     {
-
-        /*yield return new WaitForSeconds(reproductionTimeCycle - PlayerScript.reproductionHouseLevel);
-        for (int i = 0; i < PlayerScript.reproductionWorkers; i++)*/
         StartCoroutine(StartReproductionCycle());
         yield return null;
     }
@@ -156,7 +159,7 @@ public class DayCycleScript : MonoBehaviour
         if (currentTimeUI <= 0)
             currentTimeUI = 20.0f;
         UItime.SetText("" + ((int)currentTimeUI + 1));
-        UIdivinityCurrentMax.SetText("" + (int)PlayerScript.currentDivinity + "/" + (GetCurrentDay().maxDivinity + EventScript.event2));
+        UIdivinityCurrentMax.SetText("Divinidad: " + (int)PlayerScript.currentDivinity + "/" + (GetCurrentDay().maxDivinity + EventScript.event2));
         // Divinity bar filler
         float UIDivinityData = (PlayerScript.currentDivinity / (GetCurrentDay().maxDivinity + EventScript.event2)) - (GetCurrentDay().divinityConsumption / (GetCurrentDay().maxDivinity + EventScript.event2));
         if (UIDivinityData >= 0)

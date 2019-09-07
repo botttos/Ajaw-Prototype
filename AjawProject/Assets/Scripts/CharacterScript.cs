@@ -40,7 +40,6 @@ public class CharacterScript : MonoBehaviour
                 soundManager.GetComponent<SoundManager>().PlayAdditionFX();
                 defaultList.transform.GetChild(moreEnergy).GetComponent<CharacterScript>().type = HUMAN_TYPE.FOOD;
                 defaultList.transform.GetChild(moreEnergy).GetComponent<CharacterScript>().working = true;
-                //defaultList.transform.GetChild(moreEnergy).transform.Find("barra energia/fill").GetComponent<Image>().color = Color.blue;
                 defaultList.transform.GetChild(moreEnergy).transform.parent = foodList.transform;
                 PlayerScript.currentFoodWorkers++;
                 PlayerScript.houseWorkers--;
@@ -155,16 +154,3 @@ public class CharacterScript : MonoBehaviour
         }
     }
 }
-
-/*for (int j = 0; j < foodList.transform.childCount; j++)
-{
-    if (foodList.transform.GetChild(j).GetComponent<CharacterScript>().currentEnergy < foodList.transform.GetChild(lessEnergy).GetComponent<CharacterScript>().currentEnergy)
-        lessEnergy = j;
-}*/
-
-
-/*for (int j = 0; j < reproductionList.transform.childCount; j++)
-{
-if (reproductionList.transform.GetChild(j).GetComponent<CharacterScript>().currentEnergy < reproductionList.transform.GetChild(lessEnergy).GetComponent<CharacterScript>().currentEnergy)
-    lessEnergy = j;
-}*/

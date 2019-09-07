@@ -49,13 +49,33 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
-        currentDivinity = 150;
         currentFood = 50;
-        currentWeek = 0;
         currentMonth = 0;
         foodTimeCycle = 12;
         divinityTimeCycle = 8;
         chanceObject = 1;
+
+        currentDivinity = 150.0f;
+        maxDivinity = 150.0f;
+        currentWeek = 0;
+        // Buildings level
+        housesLevel = 0;
+        housesCapacity = 15;
+        houseWorkers = 0;
+        reproductionHouseLevel = 0;
+        reproductionHouseCapacity = 4;
+        reproductionWorkers = 0;
+        foodBuildingLevel = 0;
+        foodBuildingCapacity = 4;
+        currentFoodWorkers = 0;
+        foodMax = 50;
+        leftDoorLevel = 0;
+        rightDoorLevel = 0;
+        chamanLevel = 0;
+        armyPower = 0;
+        sacerdoteLevel = 0;
+        passiveDivinity = 10;
+        mercaderLevel = 0;
     }
 
     void Update()
@@ -63,8 +83,8 @@ public class PlayerScript : MonoBehaviour
         //UIfood.SetText("" + currentFood);
         UImonth.SetText("" + (1 + currentMonth));
         UIweek.SetText("" + (1 + currentWeek));
-        UImaxPopulation.SetText("" + (currentFoodWorkers + houseWorkers + (reproductionWorkers*2)) + "/" + housesCapacity);
-        UImaxReproductionWorkers.SetText("" + (int)reproductionWorkers*2 + "/" + reproductionHouseCapacity);
+        UImaxPopulation.SetText("" + (currentFoodWorkers + houseWorkers + (reproductionWorkers * 2)) + "/" + housesCapacity);
+        UImaxReproductionWorkers.SetText("" + (int)reproductionWorkers * 2 + "/" + reproductionHouseCapacity);
         UImaxFoodWorkers.SetText("" + currentFoodWorkers + "/" + foodBuildingCapacity);
     }
 }
